@@ -1,0 +1,10 @@
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\bin\Debug\TurboKyrsa4.exe.config
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\bin\Debug\TurboKyrsa4.exe
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\bin\Debug\TurboKyrsa4.pdb
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.csprojAssemblyReference.cache
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.Form1.resources
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.Properties.Resources.resources
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.csproj.GenerateResource.cache
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.csproj.CoreCompileInputs.cache
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.exe
+C:\Users\Роман\source\repos\TurboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.pdb
