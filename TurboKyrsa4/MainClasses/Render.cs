@@ -9,38 +9,97 @@ namespace TurboKyrsa4
 {
     public class Render
     {
-        bool[,] A = new bool[15, 7];
         Bitmap map = new Bitmap(1280, 960);
         Graphics graph;
+        Cell getmarks = new Cell();
 
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
         {
-            int x=179, y=50;
+            int x=178, y=75;
             graph = Graphics.FromImage(map);
             Image globalmap = Image.FromFile("MAP V1.jpg");
             Image town1 = Image.FromFile("Town1.png");
+            Image mountains1 = Image.FromFile("Mountains1.png");
+            Image mountains2 = Image.FromFile("Mountains2.png");
+            Image mountains3 = Image.FromFile("Mountains3.png");
+            Image mountains4 = Image.FromFile("Mountains4.png");
+            Image plain = Image.FromFile("Plain.png");
+            Image meadow = Image.FromFile("Meadow.png");
             graph.DrawImage(globalmap, 1, 1, 1279, 959);
+            bool count = true;
+            getmarks.InfoAboutMap();
+            bool[,] marks = getmarks.GetinfoAboutMap();
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
-                    graph.DrawImage(town1, x, y, 123, 123); // ИЗМЕНИТЬ НАЗВАНИЕ КАРТИНКИ,ИНИЦИЛИЗИРОВАТЬ ЕЕ,НАЙТИ КООРДИНАТЫ ПОД НЕЕ,ИЗМЕНИТЬ ДЛИННУ И ВЫСОТУ,ДОБАВИТЬ X И Y ДЛЯ ДРУГИХ ОТРИСОВОК (town1, 180, 50, 120, 120)
+                    if(marks[i,i2]==true)
+                    graph.DrawImage(town1, x, y, 123, 123);                   
                     x += 178;
                 }
+                if (count == true)
+                {
+                    x = 90;
+                    y += 51;
+                    count = false;
+                }
+                else
+                {
+                    x = 179;
+                    y += 51;
+                    count = true;
+                }
             }
+            x = 178;
+            y = 75;
+            int[,] location = new int[15, 7];
+            location = getmarks.GetLocation();
+            for (int i = 0; i < 15; i++)
+            {
+                for (int i2 = 0; i2 < 7; i2++)
+                {
+                    switch (location[i, i2])
+                    {
+                        case 1:
+                            graph.DrawImage(town1, x, y, 123, 123);
+                            break;
+                        case 2:
+                            graph.DrawImage(town1, x, y, 123, 123);
+                            break;
+                        case 3:
+                            graph.DrawImage(town1, x, y, 123, 123);
+                            break;
+                        case 4:
+                            graph.DrawImage(town1, x, y, 123, 123);
+                            break;
+                        case 5:
+                            graph.DrawImage(town1, x, y, 123, 123);
+                            break;
+                        case 6:
+                            graph.DrawImage(town1, x, y, 123, 123);
+                            break;
+                    }
+                    x += 178;
+                }
+                if (count == true)
+                {
+                    x = 90;
+                    y += 51;
+                    count = false;
+                }
+                else
+                {
+                    x = 179;
+                    y += 51;
+                    count = true;
+                }
+            }
+            x = 178;
+            y = 75;
             return map;
         }
 
 
-        public bool[,] GetTowns()  // Функция для отрисовки городов на карте.
-        {
-            return A;
-        }
-
-        public void SetTowns(bool[,] B) // Функция для постройки города,на вход пускаем массив с построенными городами.
-        {
-            A = B;
-        }
 
     }
 }
