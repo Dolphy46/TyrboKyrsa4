@@ -110,117 +110,79 @@ namespace TurboKyrsa4
             // 12 - tropics_1, 13 - tropics_2, 14 - tropics_3, 15 - tropics_4, 16 - tundra_1, 17 - tundra_2, 18 - tundra_3,
             // 19 - tundra_4, 20 - winter_1, 21 - winter_2, 22 - winter_3, 23 - winter_4, ( -1 = нет никакой ячейки)
 
-            location[0, 0] = 0;
-          //  location[0, 1] = -1;
+            location[0, 0] = 1;
             location[0, 2] = 20;
             location[0, 3] = 5;
-           // location[0, 4] = -1;
-            //location[0, 5] = -1;
-            //location[0, 6] = -1;
 
             location[1, 0] = 6;
             location[1, 1] = 23;
             location[1, 2] = 21;
-            //location[1, 3] = -1;
-            //location[1, 4] = -1;
-            //location[1, 5] = -1;
-           // location[1, 6] = -1;
 
             location[2, 0] = 20;
             location[2, 1] = 22;
-            location[2, 2] = 18;
+            location[2, 2] = 14;
             location[2, 3] = 5;
             location[2, 4] = 16;
-            //location[2, 5] = -1;
-            //location[2, 6] = -1;
 
             location[3, 0] = -1;
             location[3, 1] = 22;
             location[3, 2] = 23;
-         //   location[3, 3] = -1;
             location[3, 4] = 17;
-          //  location[3, 5] = -1;
-           // location[3, 6] = -1;
 
             location[4, 0] = 21;
             location[4, 1] = 7;
             location[4, 2] = 13;
             location[4, 3] = 18;
-       //     location[4, 4] = -1;
-         //   location[4, 5] = -1;
-           // location[4, 6] = -1;
+  
+            location[5, 1] = 23;
+            location[5, 2] = 7;
+            location[5, 3] = 14;
+            location[5, 4] = 18;
 
-            location[5, 0] = 24;
-            location[5, 1] = 24;
-            location[5, 2] = 24;
-            location[5, 3] = 24;
-            location[5, 4] = 24;
-            location[5, 5] = 24;
-            location[5, 6] = 24;
+            location[6, 1] = 21;
+            location[6, 2] = 12;
+            location[6, 3] = 15;
+            location[6, 4] = 16;
+            location[6, 5] = 2;
 
-            location[6, 0] = 24;
-            location[6, 1] = 24;
-            location[6, 2] = 24;
-            location[6, 3] = 24;
-            location[6, 4] = 24;
-            location[6, 5] = 24;
-            location[6, 6] = 24;
+            location[7, 0] = 22;
+            location[7, 1] = 20;
+            location[7, 2] = 15;
+            location[7, 3] = 4;
+            location[7, 4] = 17;
+            location[7, 5] = 18;
+            location[7, 6] = 19;
 
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
+            location[8, 1] = 14;
+            location[8, 2] = 4;
+            location[8, 3] = 13;
+            location[8, 4] = 19;
 
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
+            location[9, 0] = 14;
+            location[9, 1] = 12;
+            location[9, 2] = 12;
+            location[9, 3] = 15;
+            location[9, 4] = 11;
+           
+            location[10, 0] = 15;
+            location[10, 1] = 12;
+            location[10, 2] = 9;
+            location[10, 3] = 10;
+           
+            location[11, 3] = 11;
+            location[11, 4] = 8;
 
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
+            location[12, 2] = 3;
+            location[12, 3] = 0;
 
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
+            location[13, 2] = 3;
+            location[13, 3] = 10;
+            location[13, 4] = 10;
+            location[13, 5] = 9;
 
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
+            location[14, 2] = 11;
+            location[14, 4] = 11;
 
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
-
-            //location[0, 0] = 1;
-            //location[0, 1] = 1;
-            //location[0, 2] = 1;
-            //location[0, 3] = 1;
-            //location[0, 4] = 1;
-            //location[0, 5] = 1;
-            //location[0, 6] = 1;
 
         }
 
