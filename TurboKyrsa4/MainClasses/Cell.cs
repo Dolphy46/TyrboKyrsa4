@@ -46,9 +46,11 @@ namespace TurboKyrsa4
             map[0, 1] = false;
             map[0,4] = false;
             map[0,5] = false;
+            map[0, 6] = false;
             map[1, 3] = false;
             map[1, 4] = false;
             map[1, 5] = false;
+            map[1, 6] = false;
             map[2, 5] = false;
             map[3, 0] = false;
             map[3, 3] = false;
@@ -90,7 +92,7 @@ namespace TurboKyrsa4
             return map;
         }
 
-        public int[,] GetLocation()
+        public void InfoAboutLocation()
         {
             // 0-Dubai, 1 - Moscow, 2 - NewYork, 3 - mountain_savannah, 4 - mountain_tropics, 5 - mountain_tundra, 6 - mountain_winter_1, 
             // 7 - mountain_winter_2, 8 - savannah_1, 9 - savannah_2, 10 - savannah_3, 11 - savannah_4, 
@@ -153,62 +155,66 @@ namespace TurboKyrsa4
             location[6, 5] = 24;
             location[6, 6] = 24;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
-            location[0, 0] = 1;
-            location[0, 1] = 1;
-            location[0, 2] = 1;
-            location[0, 3] = 1;
-            location[0, 4] = 1;
-            location[0, 5] = 1;
-            location[0, 6] = 1;
+            //location[0, 0] = 1;
+            //location[0, 1] = 1;
+            //location[0, 2] = 1;
+            //location[0, 3] = 1;
+            //location[0, 4] = 1;
+            //location[0, 5] = 1;
+            //location[0, 6] = 1;
 
+        }
+
+        public int[,] GetLocation()
+        {
             return location;
         }
 

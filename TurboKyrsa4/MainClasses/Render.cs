@@ -45,19 +45,25 @@ namespace TurboKyrsa4
             images[23] = Image.FromFile("winter_4.png");
             images[24] = Image.FromFile("cell.png");
             graph.DrawImage(globalmap, 1, 1, 1279, 959);
-            bool count = true, count1=true;
+            bool count = true, count1=true;          
             if (count1 == true)
             {
                 getmarks.InfoAboutMap();
+                getmarks.InfoAboutLocation();
                 count1 = false;
             }
+            int[,] location = getmarks.GetLocation();
             bool[,] marks = getmarks.GetinfoAboutMap();
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
                     if (marks[i, i2] == true)
-                        graph.DrawImage(images[24], x, y, 123, 123);
+                    {
+                        int picture = location[i, i2];
+                        graph.DrawImage(images[picture], x, y, 123, 123);
+                    }
+
                     x += 178;
                 }
                 if (count == true)
@@ -72,37 +78,7 @@ namespace TurboKyrsa4
                     y += 51;
                     count = true;
                 }
-            }
-            x = 178;
-            y = 26;
-            int[,] location = new int[15, 7];
-            location = getmarks.GetLocation();
-            for (int i = 0; i < 15; i++)
-            {
-                for (int i2 = 0; i2 < 7; i2++)
-                
-                    {
-                        int picture = location[i, i2];
-                        graph.DrawImage(images[picture], x, y, 123, 123);
-                        x += 178;
-                    }
-                    if (count == true)
-                    {
-                        x = 90;
-                        y += 51;
-                        count = false;
-                    }
-                    else
-                    {
-                        x = 179;
-                        y += 51;
-                        count = true;
-                    }
-                
-                x = 178;
-                y = 75;
-            }
-            
+            }         
             return map;
         }
 
