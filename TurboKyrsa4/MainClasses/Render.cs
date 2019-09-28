@@ -15,7 +15,7 @@ namespace TurboKyrsa4
 
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
         {
-            Image[] images = new Image[25];
+            Image[] images = new Image[24];
             int x=178, y=75;
             graph = Graphics.FromImage(map);
             Image globalmap = Image.FromFile("MAP V1.jpg");
@@ -43,7 +43,6 @@ namespace TurboKyrsa4
             images[21] = Image.FromFile("winter_2.png");
             images[22] = Image.FromFile("winter_3.png");
             images[23] = Image.FromFile("winter_4.png");
-            images[24] = Image.FromFile("cell.png");
             graph.DrawImage(globalmap, 1, 1, 1279, 959);
             bool count = true, count1=true;          
             if (count1 == true)
@@ -58,9 +57,10 @@ namespace TurboKyrsa4
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
-                    if (marks[i, i2] == true)
+                    if (marks[i, i2] == true && location[i,i2] != -1)
                     {
                         int picture = location[i, i2];
+                        
                         graph.DrawImage(images[picture], x, y, 123, 123);
                     }
 
