@@ -100,44 +100,44 @@ namespace TurboKyrsa4
             // 19 - tundra_4, 20 - winter_1, 21 - winter_2, 22 - winter_3, 23 - winter_4, ( -1 = нет никакой ячейки)
 
             location[0, 0] = 0;
-            location[0, 1] = -1;
+          //  location[0, 1] = -1;
             location[0, 2] = 20;
             location[0, 3] = 5;
-            location[0, 4] = -1;
-            location[0, 5] = -1;
-            location[0, 6] = -1;
+           // location[0, 4] = -1;
+            //location[0, 5] = -1;
+            //location[0, 6] = -1;
 
             location[1, 0] = 6;
             location[1, 1] = 23;
             location[1, 2] = 21;
-            location[1, 3] = -1;
-            location[1, 4] = -1;
-            location[1, 5] = -1;
-            location[1, 6] = -1;
+            //location[1, 3] = -1;
+            //location[1, 4] = -1;
+            //location[1, 5] = -1;
+           // location[1, 6] = -1;
 
             location[2, 0] = 20;
             location[2, 1] = 22;
             location[2, 2] = 18;
             location[2, 3] = 5;
             location[2, 4] = 16;
-            location[2, 5] = -1;
-            location[2, 6] = -1;
+            //location[2, 5] = -1;
+            //location[2, 6] = -1;
 
             location[3, 0] = -1;
             location[3, 1] = 22;
             location[3, 2] = 23;
-            location[3, 3] = -1;
+         //   location[3, 3] = -1;
             location[3, 4] = 17;
-            location[3, 5] = -1;
-            location[3, 6] = -1;
+          //  location[3, 5] = -1;
+           // location[3, 6] = -1;
 
-            location[4, 0] = 24;
-            location[4, 1] = 24;
-            location[4, 2] = 24;
-            location[4, 3] = 24;
-            location[4, 4] = 24;
-            location[4, 5] = 24;
-            location[4, 6] = 24;
+            location[4, 0] = 21;
+            location[4, 1] = 7;
+            location[4, 2] = 13;
+            location[4, 3] = 18;
+       //     location[4, 4] = -1;
+         //   location[4, 5] = -1;
+           // location[4, 6] = -1;
 
             location[5, 0] = 24;
             location[5, 1] = 24;
