@@ -52,34 +52,45 @@ namespace TurboKyrsa4
             map[1, 5] = false;
             map[1, 6] = false;
             map[2, 5] = false;
+            map[2, 6] = false;
             map[3, 0] = false;
             map[3, 3] = false;
             map[3, 5] = false;
+            map[3, 6] = false;
             map[4, 4] = false;
             map[4, 5] = false;
+            map[4, 6] = false;
             map[5, 0] = false;
             map[5, 5] = false;
+            map[5, 6] = false;
             map[6, 0] = false;
+            map[6, 6] = false;
             map[8, 0] = false;
             map[8, 5] = false;
+            map[8, 6] = false;
             map[9, 5] = false;
+            map[9, 6] = false;
             map[10, 4] = false;
             map[10, 5] = false;
+            map[10, 6] = false;
             map[11, 0] = false;
             map[11, 1] = false;
-            map[11, 5] = false;
-            map[11, 5] = false;
             map[11, 2] = false;
+            map[11, 5] = false;
+            map[11, 6] = false;
             map[12, 0] = false;
             map[12, 4] = false;
             map[12, 1] = false;
             map[12, 5] = false;
+            map[12, 6] = false;
             map[13, 0] = false;
             map[13, 1] = false;
+            map[13, 6] = false;
             map[14, 0] = false;
             map[14, 1] = false;
             map[14, 3] = false;
             map[14, 5] = false;
+            map[14, 6] = false;
         }
 
         public void SetinfoAboutMap(bool[,] info)
