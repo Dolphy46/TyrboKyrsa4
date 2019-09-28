@@ -15,19 +15,37 @@ namespace TurboKyrsa4
 
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
         {
+            Image[] images = new Image[25];
             int x=178, y=75;
             graph = Graphics.FromImage(map);
             Image globalmap = Image.FromFile("MAP V1.jpg");
-            Image cell = Image.FromFile("Cell.png");
-            Image mountains1 = Image.FromFile("Mountains1.png");
-            Image mountains2 = Image.FromFile("Mountains2.png");
-            Image mountains3 = Image.FromFile("Mountains3.png");
-            Image mountains4 = Image.FromFile("Mountains4.png");
-            Image plain = Image.FromFile("Plain.png");
-            Image meadow = Image.FromFile("Meadow.png");
-            Image town1 = Image.FromFile("Town1.png");
+            images[0] = Image.FromFile("Dubai.png");
+            images[1] = Image.FromFile("Moscow.png");
+            images[2] = Image.FromFile("NewYork.png");
+            images[3] = Image.FromFile("mountain_savannah.png");
+            images[4] = Image.FromFile("mountain_tropics.png");
+            images[5] = Image.FromFile("mountain_tundra.png");
+            images[6] = Image.FromFile("mountain_winter_1.png");
+            images[7] = Image.FromFile("mountain_winter_2.png");
+            images[8] = Image.FromFile("savannah_1.png");
+            images[9] = Image.FromFile("savannah_2.png");
+            images[10] = Image.FromFile("savannah_3.png");
+            images[11] = Image.FromFile("savannah_4.png");
+            images[12] = Image.FromFile("tropics_1.png");
+            images[13] = Image.FromFile("tropics_2.png");
+            images[14] = Image.FromFile("tropics_3.png");
+            images[15] = Image.FromFile("tropics_4.png");
+            images[16] = Image.FromFile("tundra_1.png");
+            images[17] = Image.FromFile("tundra_2.png");
+            images[18] = Image.FromFile("tundra_3.png");
+            images[19] = Image.FromFile("tundra_4.png");
+            images[20] = Image.FromFile("winter_1.png");
+            images[21] = Image.FromFile("winter_2.png");
+            images[22] = Image.FromFile("winter_3.png");
+            images[23] = Image.FromFile("winter_4.png");
+            images[24] = Image.FromFile("cell.png");
             graph.DrawImage(globalmap, 1, 1, 1279, 959);
-            bool count = true,count1=true;
+            bool count = true, count1=true;
             if (count1 == true)
             {
                 getmarks.InfoAboutMap();
@@ -38,8 +56,8 @@ namespace TurboKyrsa4
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
-                    if(marks[i,i2]==true)
-                    graph.DrawImage(cell, x, y, 123, 123);                   
+                    if (marks[i, i2] == true)
+                        graph.DrawImage(images[24], x, y, 123, 123);
                     x += 178;
                 }
                 if (count == true)
@@ -56,54 +74,35 @@ namespace TurboKyrsa4
                 }
             }
             x = 178;
-            y = 75;
+            y = 26;
             int[,] location = new int[15, 7];
             location = getmarks.GetLocation();
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)
-                {
-                    switch (location[i, i2])
+                
                     {
-                        case 0:
-                            graph.DrawImage(plain, x, y, 123, 123);
-                            break;
-                        case 1:
-                            graph.DrawImage(meadow, x, y, 123, 123);
-                            break;
-                        case 2:
-                            graph.DrawImage(mountains1, x, y, 123, 123);
-                            break;
-                        case 3:
-                            graph.DrawImage(mountains2, x, y, 123, 123);
-                            break;
-                        case 4:
-                            graph.DrawImage(mountains3, x, y, 123, 123);
-                            break;
-                        case 5:
-                            graph.DrawImage(mountains4, x, y, 123, 123);
-                            break;
-                        case 6:
-                            graph.DrawImage(town1, x, y, 123, 123);
-                            break;
+                        int picture = location[i, i2];
+                        graph.DrawImage(images[picture], x, y, 123, 123);
+                        x += 178;
                     }
-                    x += 178;
-                }
-                if (count == true)
-                {
-                    x = 90;
-                    y += 51;
-                    count = false;
-                }
-                else
-                {
-                    x = 179;
-                    y += 51;
-                    count = true;
-                }
+                    if (count == true)
+                    {
+                        x = 90;
+                        y += 51;
+                        count = false;
+                    }
+                    else
+                    {
+                        x = 179;
+                        y += 51;
+                        count = true;
+                    }
+                
+                x = 178;
+                y = 75;
             }
-            x = 178;
-            y = 75;
+            
             return map;
         }
 
