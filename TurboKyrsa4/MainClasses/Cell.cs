@@ -142,29 +142,29 @@ namespace TurboKyrsa4
             location[3, 5] = -1;
             location[3, 6] = -1;
 
-            location[4, 0] = 24;
-            location[4, 1] = 24;
-            location[4, 2] = 24;
-            location[4, 3] = 24;
-            location[4, 4] = 24;
-            location[4, 5] = 24;
-            location[4, 6] = 24;
+            //location[4, 0] = 24;
+            //location[4, 1] = 24;
+            //location[4, 2] = 24;
+            //location[4, 3] = 24;
+            //location[4, 4] = 24;
+            //location[4, 5] = 24;
+            //location[4, 6] = 24;
 
-            location[5, 0] = 24;
-            location[5, 1] = 24;
-            location[5, 2] = 24;
-            location[5, 3] = 24;
-            location[5, 4] = 24;
-            location[5, 5] = 24;
-            location[5, 6] = 24;
+            //location[5, 0] = 24;
+            //location[5, 1] = 24;
+            //location[5, 2] = 24;
+            //location[5, 3] = 24;
+            //location[5, 4] = 24;
+            //location[5, 5] = 24;
+            //location[5, 6] = 24;
 
-            location[6, 0] = 24;
-            location[6, 1] = 24;
-            location[6, 2] = 24;
-            location[6, 3] = 24;
-            location[6, 4] = 24;
-            location[6, 5] = 24;
-            location[6, 6] = 24;
+            //location[6, 0] = 24;
+            //location[6, 1] = 24;
+            //location[6, 2] = 24;
+            //location[6, 3] = 24;
+            //location[6, 4] = 24;
+            //location[6, 5] = 24;
+            //location[6, 6] = 24;
 
             //location[0, 0] = 1;
             //location[0, 1] = 1;

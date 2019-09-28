@@ -82,7 +82,31 @@ namespace TurboKyrsa4
             return map;
         }
 
-
+        public Bitmap Accentuation(int x,int y)
+        {
+            int count=0, count2=0;
+            map = RenderMap();
+            if (x>178&&y>75)
+            {
+                while (x > 300)
+                {
+                    x -= 179;
+                    count++;
+                }
+                while (y > 186)
+                {
+                    y -= 123;
+                    count2++;
+                }
+            }
+            graph.DrawLine(new Pen(Color.Orange, 5), 209 + 179 * count, 84 + 179 * count2, 264 + 179 * count, 84 + 179 * count2);
+            graph.DrawLine(new Pen(Color.Orange, 5), 264 + count * 179, 84 + count2 * 179, 300 + count * 179, 135 + count2 * 179);
+            graph.DrawLine(new Pen(Color.Orange, 5), 300 + 179 * count, 135 + count2 * 179, 270 + count * 179, 186 + count2 * 179);
+            graph.DrawLine(new Pen(Color.Orange, 5), 270 + count * 179, 186 + count2 * 179, 211 + count * 179, 186 + count2 * 179);
+            graph.DrawLine(new Pen(Color.Orange, 5), 211 + count * 179, 186 + count2 * 179, 178 + count * 179, 133 + count2 * 179);
+            graph.DrawLine(new Pen(Color.Orange, 5), 178 + count * 179, 133 + count2 * 179, 209 + count * 179, 84 + count2 * 179);
+            return map;
+        }
 
     }
 }
