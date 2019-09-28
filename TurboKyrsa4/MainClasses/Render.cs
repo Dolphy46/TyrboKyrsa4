@@ -57,10 +57,9 @@ namespace TurboKyrsa4
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
-                    if (marks[i, i2] == true && location[i,i2] != -1)
+                    if (marks[i, i2] == true)
                     {
                         int picture = location[i, i2];
-                        
                         graph.DrawImage(images[picture], x, y, 123, 123);
                     }
 
