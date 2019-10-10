@@ -16,7 +16,7 @@ namespace TurboKyrsa4
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
         {
             Image[] images = new Image[24];
-            int x=178, y=75;
+            int x=138, y=75;
             graph = Graphics.FromImage(map);
             Image globalmap = Image.FromFile("MAP V1.jpg");
             images[0] = Image.FromFile("Dubai.png");
@@ -59,21 +59,19 @@ namespace TurboKyrsa4
                 {
                     if (marks[i, i2] == true)
                     {
-                        int picture = location[i, i2];
-                        graph.DrawImage(images[picture], x, y, 123, 123);
+                        graph.DrawImage(images[location[i,i2]], x, y, 123, 123);
                     }
-
-                    x += 178;
+                    x += 185;
                 }
                 if (count == true)
                 {
-                    x = 90;
+                    x = 46;
                     y += 51;
                     count = false;
                 }
                 else
                 {
-                    x = 179;
+                    x = 138;
                     y += 51;
                     count = true;
                 }
@@ -81,30 +79,63 @@ namespace TurboKyrsa4
             return map;
         }
 
-        public Bitmap Accentuation(int x,int y)
+        public int[] Accentuation(int x,int y)
         {
-            int count=0, count2=0;
-            map = RenderMap();
-            if (x>178&&y>75)
+            bool[,] info = getmarks.GetinfoAboutMap();
+            int x1 = 200, y1 = 135;      
+            int[] someshit=new int[2];
+            int[] kek = new int[] {1,2};
+            bool count = true;
+            for (int i = 0; i < 15; i++)
             {
-                while (x > 300)
+                for (int i2 = 0; i2 < 7; i2++)
                 {
-                    x -= 179;
-                    count++;
+                    if(Check(x,y,x1,y1)==true)
+                    {
+                        if (info[i, i2])
+                        {
+                            someshit[0] = x1;
+                            someshit[1] = y1;
+                            return someshit;
+                        }
+                    }
+                    x1 += 185;
                 }
-                while (y > 186)
+                if (count == true)
                 {
-                    y -= 123;
-                    count2++;
+                    x1 = 108;
+                    y1 += 51;
+                    count = false;
+                }
+                else
+                {
+                    x1 = 200;
+                    y1 += 51;
+                    count = true;
                 }
             }
-            graph.DrawLine(new Pen(Color.Orange, 5), 209 + 179 * count, 84 + 179 * count2, 264 + 179 * count, 84 + 179 * count2);
-            graph.DrawLine(new Pen(Color.Orange, 5), 264 + count * 179, 84 + count2 * 179, 300 + count * 179, 135 + count2 * 179);
-            graph.DrawLine(new Pen(Color.Orange, 5), 300 + 179 * count, 135 + count2 * 179, 270 + count * 179, 186 + count2 * 179);
-            graph.DrawLine(new Pen(Color.Orange, 5), 270 + count * 179, 186 + count2 * 179, 211 + count * 179, 186 + count2 * 179);
-            graph.DrawLine(new Pen(Color.Orange, 5), 211 + count * 179, 186 + count2 * 179, 178 + count * 179, 133 + count2 * 179);
-            graph.DrawLine(new Pen(Color.Orange, 5), 178 + count * 179, 133 + count2 * 179, 209 + count * 179, 84 + count2 * 179);
-            return map;
+            return kek;
+        }
+
+        
+        private bool Check(int x1,int y1,int x2,int y2)
+        {
+            const int z= 60;
+            int x = Math.Abs(x1 - x2), y = Math.Abs(y1 - y2);
+
+            var py1 = z * 0.86602540378;
+            var px2 = z * 0.2588190451;
+            var py2 = z * 0.96592582628;
+
+            var p_angle_01 = -x * (py1 - y) - x * y;
+            var p_angle_20 = -y * (px2 - x) + x * (py2 - y);
+            var p_angle_03 = y * z;
+            var p_angle_12 = -x * (py2 - y) - (px2 - x) * (py1 - y);
+            var p_angle_32 = (z - x) * (py2 - y) + y * (px2 - x);
+
+            bool is_inside_1 = (p_angle_01 * p_angle_12 >= 0) && (p_angle_12 * p_angle_20 >= 0);
+            bool is_inside_2 = (p_angle_03 * p_angle_32 >= 0) && (p_angle_32 * p_angle_20 >= 0);
+            return (is_inside_1 || is_inside_2);
         }
 
     }

@@ -15,7 +15,7 @@ namespace TurboKyrsa4
 
         }
 
-        public Cell(bool town) // Конструктор класса
+        public Cell(bool bilding) // Конструктор класса
         {
             this.bilding = bilding;
         }
