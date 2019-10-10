@@ -79,24 +79,39 @@ namespace TurboKyrsa4
             return map;
         }
 
-        public int[] Accentuation(int x,int y)
+        public Bitmap Accentuation(int x,int y) // Возвращает карту с отрисованным выделением
+        {
+            Bitmap map = RenderMap();
+            int[] coords = FindCoords(x, y);
+            if (coords[2] == 1)
+            {
+                graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 30, coords[1] - 50, coords[0] + 30, coords[1] - 50);
+                graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 30, coords[1] - 50, coords[0] + 62, coords[1]);
+                graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 62, coords[1], coords[0] + 30, coords[1] + 50);
+                graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 30, coords[1] + 50, coords[0] - 30, coords[1] + 50);
+                graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 30, coords[1] + 50, coords[0] - 62, coords[1]);
+                graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 62, coords[1], coords[0] - 30, coords[1] - 50);
+            }
+            return map;
+        }
+
+        public int[] FindCoords(int x, int y) // Ищет нужный шестиугольник по координатам мыши
         {
             bool[,] info = getmarks.GetinfoAboutMap();
-            int x1 = 200, y1 = 135;      
-            int[] someshit=new int[2];
-            int[] kek = new int[] {1,2};
+            int x1 = 200, y1 = 135;
             bool count = true;
+            int[] coords = new int[3];
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
-                    if(Check(x,y,x1,y1)==true)
+                    if (Check(x, y, x1, y1) == true)
                     {
                         if (info[i, i2])
                         {
-                            someshit[0] = x1;
-                            someshit[1] = y1;
-                            return someshit;
+                            coords[0] = x1;
+                            coords[1] = y1;
+                            coords[2] = 1;
                         }
                     }
                     x1 += 185;
@@ -114,13 +129,12 @@ namespace TurboKyrsa4
                     count = true;
                 }
             }
-            return kek;
+            return coords;
         }
-
         
-        private bool Check(int x1,int y1,int x2,int y2)
+        private bool Check(int x1,int y1,int x2,int y2) // Определяет принадлежность точки к шестиугольнику
         {
-            const int z= 60;
+            const int z= 62;
             int x = Math.Abs(x1 - x2), y = Math.Abs(y1 - y2);
 
             var py1 = z * 0.86602540378;
