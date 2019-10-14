@@ -33,6 +33,11 @@ namespace TurboKyrsa4
         bool[,] map = new bool[15, 7];
         int[,] location = new int[15, 7];
 
+       public void Redraw(int i, int i2, int n)
+        {
+            location[i, i2] = n;
+        }
+
         public void InfoAboutMap()
         {
             for (int i = 0; i < 15; i++)
@@ -105,10 +110,10 @@ namespace TurboKyrsa4
 
         public void InfoAboutLocation()
         {
-            // 0-Dubai, 1 - Moscow, 2 - NewYork, 3 - mountain_savannah, 4 - mountain_tropics, 5 - mountain_tundra, 6 - mountain_winter_1, 
+            // 0-Dubai, 1 - Moscow, 2 - Washington, 3 - mountain_savannah, 4 - mountain_tropics, 5 - mountain_tundra, 6 - mountain_winter_1, 
             // 7 - mountain_winter_2, 8 - savannah_1, 9 - savannah_2, 10 - savannah_3, 11 - savannah_4, 
             // 12 - tropics_1, 13 - tropics_2, 14 - tropics_3, 15 - tropics_4, 16 - tundra_1, 17 - tundra_2, 18 - tundra_3,
-            // 19 - tundra_4, 20 - winter_1, 21 - winter_2, 22 - winter_3, 23 - winter_4, ( -1 = нет никакой ячейки)
+            // 19 - tundra_4, 20 - winter_1, 21 - winter_2, 22 - winter_3, 23 - winter_4, 24 - OON ( -1 = нет никакой ячейки)
 
             location[0, 0] = 1;
             location[0, 2] = 20;
@@ -150,7 +155,7 @@ namespace TurboKyrsa4
             location[7, 0] = 22;
             location[7, 1] = 20;
             location[7, 2] = 15;
-            location[7, 3] = 4;
+            location[7, 3] = 24;
             location[7, 4] = 17;
             location[7, 5] = 18;
             location[7, 6] = 19;

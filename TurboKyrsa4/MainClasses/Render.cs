@@ -12,16 +12,17 @@ namespace TurboKyrsa4
         Bitmap map = new Bitmap(1280, 960);
         Graphics graph;
         Cell getmarks = new Cell();
+        private Image[] images = new Image[33];
+
 
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
         {
-            Image[] images = new Image[24];
             int x=138, y=75;
             graph = Graphics.FromImage(map);
             Image globalmap = Image.FromFile("MAP V1.jpg");
             images[0] = Image.FromFile("Dubai.png");
             images[1] = Image.FromFile("Moscow.png");
-            images[2] = Image.FromFile("NewYork.png");
+            images[2] = Image.FromFile("Washington.png");
             images[3] = Image.FromFile("mountain_savannah.png");
             images[4] = Image.FromFile("mountain_tropics.png");
             images[5] = Image.FromFile("mountain_tundra.png");
@@ -43,6 +44,14 @@ namespace TurboKyrsa4
             images[21] = Image.FromFile("winter_2.png");
             images[22] = Image.FromFile("winter_3.png");
             images[23] = Image.FromFile("winter_4.png");
+            images[24] = Image.FromFile("OON.png");
+            images[25] = Image.FromFile("mine_winter.png");
+            images[26] = Image.FromFile("sawmill_winter.png");
+            images[27] = Image.FromFile("farm_winter.png");
+            images[28] = Image.FromFile("port_winter.png");
+            images[29] = Image.FromFile("plant_winter.png");
+            images[30] = Image.FromFile("windturbine_winter.png");
+            images[32] = Image.FromFile("laboratory_winter.png");
             graph.DrawImage(globalmap, 1, 1, 1279, 959);
             bool count = true, count1=true;          
             if (count1 == true)
@@ -79,28 +88,42 @@ namespace TurboKyrsa4
             return map;
         }
 
-        public Bitmap Accentuation(int x,int y) // Возвращает карту с отрисованным выделением
+        public Bitmap Accentuation(int x, int y) // Возвращает карту с отрисованным выделением
         {
             Bitmap map = RenderMap();
             int[] coords = FindCoords(x, y);
-            if (coords[2] == 1)
+            if (coords[2] != -1)
             {
-                graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 30, coords[1] - 50, coords[0] + 30, coords[1] - 50);
-                graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 30, coords[1] - 50, coords[0] + 62, coords[1]);
-                graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 62, coords[1], coords[0] + 30, coords[1] + 50);
-                graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 30, coords[1] + 50, coords[0] - 30, coords[1] + 50);
-                graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 30, coords[1] + 50, coords[0] - 62, coords[1]);
-                graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 62, coords[1], coords[0] - 30, coords[1] - 50);
+                if (coords[2] == 1 || coords[2] == 7 || coords[2] == 6 || (coords[2] >= 20 && coords[2] < 24))
+                {
+                    graph.DrawLine(new Pen(Color.Green, 5), coords[0] - 30, coords[1] - 50, coords[0] + 30, coords[1] - 50);
+                    graph.DrawLine(new Pen(Color.Green, 5), coords[0] + 30, coords[1] - 50, coords[0] + 62, coords[1]);
+                    graph.DrawLine(new Pen(Color.Green, 5), coords[0] + 62, coords[1], coords[0] + 30, coords[1] + 50);
+                    graph.DrawLine(new Pen(Color.Green, 5), coords[0] + 30, coords[1] + 50, coords[0] - 30, coords[1] + 50);
+                    graph.DrawLine(new Pen(Color.Green, 5), coords[0] - 30, coords[1] + 50, coords[0] - 62, coords[1]);
+                    graph.DrawLine(new Pen(Color.Green, 5), coords[0] - 62, coords[1], coords[0] - 30, coords[1] - 50);
+                }
+                else
+                {
+                    graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 30, coords[1] - 50, coords[0] + 30, coords[1] - 50);
+                    graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 30, coords[1] - 50, coords[0] + 62, coords[1]);
+                    graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 62, coords[1], coords[0] + 30, coords[1] + 50);
+                    graph.DrawLine(new Pen(Color.Red, 5), coords[0] + 30, coords[1] + 50, coords[0] - 30, coords[1] + 50);
+                    graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 30, coords[1] + 50, coords[0] - 62, coords[1]);
+                    graph.DrawLine(new Pen(Color.Red, 5), coords[0] - 62, coords[1], coords[0] - 30, coords[1] - 50);
+                }
             }
             return map;
         }
 
         public int[] FindCoords(int x, int y) // Ищет нужный шестиугольник по координатам мыши
         {
+            int[,] location = getmarks.GetLocation();
             bool[,] info = getmarks.GetinfoAboutMap();
             int x1 = 200, y1 = 135;
             bool count = true;
-            int[] coords = new int[3];
+            int[] coords = new int[5];
+            coords[2] = -1;
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)
@@ -111,7 +134,9 @@ namespace TurboKyrsa4
                         {
                             coords[0] = x1;
                             coords[1] = y1;
-                            coords[2] = 1;
+                            coords[3] = i;
+                            coords[4] = i2;
+                            coords[2] = location[i,i2];
                         }
                     }
                     x1 += 185;
@@ -152,5 +177,28 @@ namespace TurboKyrsa4
             return (is_inside_1 || is_inside_2);
         }
 
+        
+        
+
+        public Bitmap Construction(int x)
+        {
+            Bitmap construction = new Bitmap(100, 100);
+            graph = Graphics.FromImage(construction);
+            graph.DrawImage(images[x], 0, 0);
+            return construction;
+        }
+
+        public Bitmap AccentuationConstruction(int x)
+        {
+            Bitmap construction1 = Construction(x);
+            graph = Graphics.FromImage(construction1);
+            graph.DrawLine(new Pen(Color.Green, 5), 24, 8, 74, 8);
+            graph.DrawLine(new Pen(Color.Green, 5), 73, 7, 100, 50);
+            graph.DrawLine(new Pen(Color.Green, 5), 99, 50, 74, 91);
+            graph.DrawLine(new Pen(Color.Green, 5), 75, 91, 24, 91);
+            graph.DrawLine(new Pen(Color.Green, 5), 24, 90, 1, 50);
+            graph.DrawLine(new Pen(Color.Green, 5), 0, 50, 24, 8);
+            return construction1;
+        }
     }
 }
