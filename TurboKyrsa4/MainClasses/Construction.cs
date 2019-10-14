@@ -21,23 +21,29 @@ namespace TurboKyrsa4.MainClasses
             pictureBox4.Image = game.Construction(3);
             pictureBox5.Image = game.Construction(4);
             pictureBox6.Image = game.Construction(5);
+            pictureBox7.Image = game.Construction(6);
             pictureBox8.Image = game.Construction(7);
         }
 
         Render game = new Render();
         private int number;
-        Form1 f = new Form1();
         Cell check = new Cell();
+        static bool control = false;
+
+        public bool Control
+        {
+            get { return control; }
+        }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 25;
+            number = 0;
             Stroke(number);
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            number = 25;
+            number = 0;
             Picter(number);
         }
 
@@ -45,28 +51,28 @@ namespace TurboKyrsa4.MainClasses
         {
             switch (x)
             {
-                case 25:
+                case 0:
                     pictureBox1.Image = game.AccentuationConstruction(x);
                     break;
-                case 26:
+                case 1:
                     pictureBox2.Image = game.AccentuationConstruction(x);
                     break;
-                case 27:
+                case 2:
                     pictureBox3.Image = game.AccentuationConstruction(x);
                     break;
-                case 28:
+                case 3:
                     pictureBox4.Image = game.AccentuationConstruction(x);
                     break;
-                case 29:
+                case 4:
                     pictureBox5.Image = game.AccentuationConstruction(x);
                     break;
-                case 30:
+                case 5:
                     pictureBox6.Image = game.AccentuationConstruction(x);
                     break;
-                case 31:
+                case 6:
                     pictureBox7.Image = game.AccentuationConstruction(x);
                     break;
-                case 32:
+                case 7:
                     pictureBox8.Image = game.AccentuationConstruction(x);
                     break;
             }
@@ -76,28 +82,28 @@ namespace TurboKyrsa4.MainClasses
         {
             switch (x)
             {
-                case 25:
+                case 0:
                     pictureBox1.Image = game.Construction(x);
                     break;
-                case 26:
+                case 1:
                     pictureBox2.Image = game.Construction(x);
                     break;
-                case 27:
+                case 2:
                     pictureBox3.Image = game.Construction(x);
                     break;
-                case 28:
+                case 3:
                     pictureBox4.Image = game.Construction(x);
                     break;
-                case 29:
+                case 4:
                     pictureBox5.Image = game.Construction(x);
                     break;
-                case 30:
+                case 5:
                     pictureBox6.Image = game.Construction(x);
                     break;
-                case 31:
+                case 6:
                     pictureBox7.Image = game.Construction(x);
                     break;
-                case 32:
+                case 7:
                     pictureBox8.Image = game.Construction(x);
                     break;
             }
@@ -106,79 +112,95 @@ namespace TurboKyrsa4.MainClasses
 
         private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 26;
+            number = 1;
             Stroke(number);
         }
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            number = 26;
+            number = 1;
             Picter(number);
         }
 
         private void pictureBox3_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 27;
+            number = 2;
             Stroke(number);
         }
 
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
-            number = 27;
+            number = 2;
             Picter(number);
         }
 
         private void pictureBox4_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 28;
+            number = 3;
             Stroke(number);
         }
 
         private void pictureBox4_MouseLeave(object sender, EventArgs e)
         {
-            number = 28;
+            number = 3;
             Picter(number);
         }
 
         private void pictureBox5_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 29;
+            number = 4;
             Stroke(number);
         }
 
         private void pictureBox5_MouseLeave(object sender, EventArgs e)
         {
-            number = 29;
+            number = 4;
             Picter(number);
         }
 
         private void pictureBox6_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 30;
+            number = 5;
             Stroke(number);
         }
 
         private void pictureBox6_MouseLeave(object sender, EventArgs e)
         {
-            number = 30;
+            number = 5;
             Picter(number);
         }
 
         private void pictureBox8_MouseMove(object sender, MouseEventArgs e)
         {
-            number = 32;
+            number = 7;
             Stroke(number);
         }
 
         private void pictureBox8_MouseLeave(object sender, EventArgs e)
         {
-            number = 32;
+            number = 7;
             Picter(number);
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            check.Redraw(f.I, f.I2, number);
+        //    control = true;
+        //    int i = game.I;
+        //    int i2 = game.I2;
+        //    check.Redraw(i, i2, number + 25);
+        //    this.Close();
+        }
+
+        private void pictureBox7_MouseMove(object sender, MouseEventArgs e)
+        {
+            number = 6;
+            Stroke(number);
+        }
+
+        private void pictureBox7_MouseLeave(object sender, EventArgs e)
+        {
+            number = 6;
+            Picter(number);
         }
     }
 }

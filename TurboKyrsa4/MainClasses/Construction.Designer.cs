@@ -132,6 +132,8 @@
             this.pictureBox7.Size = new System.Drawing.Size(100, 100);
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.pictureBox7_MouseLeave);
+            this.pictureBox7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox7_MouseMove);
             // 
             // pictureBox8
             // 

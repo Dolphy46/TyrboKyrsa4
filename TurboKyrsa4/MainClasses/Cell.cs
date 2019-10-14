@@ -33,7 +33,9 @@ namespace TurboKyrsa4
         bool[,] map = new bool[15, 7];
         int[,] location = new int[15, 7];
 
-       public void Redraw(int i, int i2, int n)
+       
+
+        public void Redraw(int i, int i2, int n)
         {
             location[i, i2] = n;
         }

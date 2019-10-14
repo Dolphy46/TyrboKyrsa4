@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TurboKyrsa4.MainClasses;
 
 namespace TurboKyrsa4
 {
@@ -12,14 +13,25 @@ namespace TurboKyrsa4
         Bitmap map = new Bitmap(1280, 960);
         Graphics graph;
         Cell getmarks = new Cell();
-        private Image[] images = new Image[33];
+       
+        private int i , i2;
 
+        public int I
+        {
+            get { return i; }
+        }
+
+        public int I2
+        {
+            get { return i2; }
+        }
 
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
         {
             int x=138, y=75;
             graph = Graphics.FromImage(map);
             Image globalmap = Image.FromFile("MAP V1.jpg");
+            Image[] images = new Image[33];
             images[0] = Image.FromFile("Dubai.png");
             images[1] = Image.FromFile("Moscow.png");
             images[2] = Image.FromFile("Washington.png");
@@ -51,15 +63,17 @@ namespace TurboKyrsa4
             images[28] = Image.FromFile("port_winter.png");
             images[29] = Image.FromFile("plant_winter.png");
             images[30] = Image.FromFile("windturbine_winter.png");
+            images[31] = Image.FromFile("casern_winter.png");
             images[32] = Image.FromFile("laboratory_winter.png");
             graph.DrawImage(globalmap, 1, 1, 1279, 959);
-            bool count = true, count1=true;          
+            bool count1 = true;
             if (count1 == true)
             {
                 getmarks.InfoAboutMap();
                 getmarks.InfoAboutLocation();
                 count1 = false;
             }
+            bool count = true;
             int[,] location = getmarks.GetLocation();
             bool[,] marks = getmarks.GetinfoAboutMap();
             for (int i = 0; i < 15; i++)
@@ -122,7 +136,7 @@ namespace TurboKyrsa4
             bool[,] info = getmarks.GetinfoAboutMap();
             int x1 = 200, y1 = 135;
             bool count = true;
-            int[] coords = new int[5];
+            int[] coords = new int[3];
             coords[2] = -1;
             for (int i = 0; i < 15; i++)
             {
@@ -134,8 +148,8 @@ namespace TurboKyrsa4
                         {
                             coords[0] = x1;
                             coords[1] = y1;
-                            coords[3] = i;
-                            coords[4] = i2;
+                            this.i = i;
+                            this.i2 = i2;
                             coords[2] = location[i,i2];
                         }
                     }
@@ -176,15 +190,22 @@ namespace TurboKyrsa4
             bool is_inside_2 = (p_angle_03 * p_angle_32 >= 0) && (p_angle_32 * p_angle_20 >= 0);
             return (is_inside_1 || is_inside_2);
         }
-
-        
-        
+ 
 
         public Bitmap Construction(int x)
         {
+            Image[] image = new Image[8];
+            image[0] = Image.FromFile("mine_winter.png");
+            image[1] = Image.FromFile("sawmill_winter.png");
+            image[2] = Image.FromFile("farm_winter.png");
+            image[3] = Image.FromFile("port_winter.png");
+            image[4] = Image.FromFile("plant_winter.png");
+            image[5] = Image.FromFile("windturbine_winter.png");
+            image[6] = Image.FromFile("casern_winter.png");
+            image[7] = Image.FromFile("laboratory_winter.png");
             Bitmap construction = new Bitmap(100, 100);
             graph = Graphics.FromImage(construction);
-            graph.DrawImage(images[x], 0, 0);
+            graph.DrawImage(image[x], 0, 0);
             return construction;
         }
 
