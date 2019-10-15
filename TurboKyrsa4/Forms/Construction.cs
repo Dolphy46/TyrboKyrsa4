@@ -29,12 +29,6 @@ namespace TurboKyrsa4.MainClasses
         Render window = new Render();
         Cell check = new Cell();
         private int number;
-        static bool control = false;
-
-        public bool Control
-        {
-            get { return control; }
-        }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -182,6 +176,7 @@ namespace TurboKyrsa4.MainClasses
             number = 7;
             Picter(number);
         }
+
         int i, i2;
 
         public void GetI(int i,int i2)

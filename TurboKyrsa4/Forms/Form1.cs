@@ -32,12 +32,20 @@ namespace TurboKyrsa4
             construction.GetI(game.SendI()[0], game.SendI()[1]);
             if (check[2] != -1)
             {
-                if (check[2] == 1 || check[2] == 7 || check[2] == 6 || (check[2] >= 20 && check[2] < 24))
-                {
-                    construction.ShowDialog();
-                }
+                if (check[2] == 1)
+                    MessageBox.Show("Пока в городе невозможно ничего построить");
                 else
-                    MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
+                {
+                    if (check[2] == 7 || check[2] == 6 || (check[2] >= 20 && check[2] <= 32))
+                    {
+                        if (check[2] >= 25)
+                            MessageBox.Show("На этой территории уже построено здание");
+                        else
+                            construction.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
+                }
             }         
         }
 
