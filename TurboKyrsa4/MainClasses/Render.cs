@@ -103,7 +103,7 @@ namespace TurboKyrsa4
             int[] coords = FindCoords(x, y);
             if (coords[2] != -1)
             {
-                if (coords[2] == 1 || coords[2] == 7 || coords[2] == 6 || (coords[2] >= 20 && coords[2] < 24))
+                if (coords[2] == 1 || coords[2] == 7 || coords[2] == 6 || (coords[2] >= 20 && coords[2] <= 32))
                 {
                     graph.DrawLine(new Pen(Color.Green, 5), coords[0] - 30, coords[1] - 50, coords[0] + 30, coords[1] - 50);
                     graph.DrawLine(new Pen(Color.Green, 5), coords[0] + 30, coords[1] - 50, coords[0] + 62, coords[1]);
