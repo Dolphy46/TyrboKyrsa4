@@ -38,7 +38,7 @@ namespace TurboKyrsa4
                     MessageBox.Show("Пока в городе невозможно ничего построить");
                 else
                 {
-                    if (check[2] == 7 || check[2] == 6 || (check[2] >= 20 && check[2] <= 32))
+                    if (check[2] == 7 || check[2] == 6 || (check[2] >= 20 && check[2] <= 32 && check[2] != 24))
                     {
                         if (check[2] >= 25)
                             MessageBox.Show("На этой территории уже построено здание");
