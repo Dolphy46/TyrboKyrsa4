@@ -17,6 +17,8 @@ namespace TurboKyrsa4
         {
             InitializeComponent();
             game.InitializeMass();
+            check.InfoAboutLocation();
+            check.Record();
             pictureBox1.Image = game.RenderMap();
         }
 

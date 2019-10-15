@@ -120,6 +120,22 @@ namespace TurboKyrsa4
             return map;
         }
 
+        public void Record()
+        {
+            StreamWriter sw = new StreamWriter(bildings);
+            string line = "";
+            sw.Write(line);
+            for (int i = 0; i < 15; i++)
+            {
+                for (int i2 = 0; i2 < 7; i2++)
+                {
+                    line += Convert.ToString(location[i, i2]) + "\r\n";
+                }
+            }
+            sw.WriteLine(line);
+            sw.Close();
+        }
+
         public void InfoAboutLocation()
         {
             // 0-Dubai, 1 - Moscow, 2 - Washington, 3 - mountain_savannah, 4 - mountain_tropics, 5 - mountain_tundra, 6 - mountain_winter_1, 
