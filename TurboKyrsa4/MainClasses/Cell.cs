@@ -11,8 +11,8 @@ namespace TurboKyrsa4
     {
         bool[,] map = new bool[15, 7];
         int[,] location = new int[15, 7];
-        string water = System.IO.Path.Combine(Environment.CurrentDirectory, "Water.txt");
-        string bildings = System.IO.Path.Combine(Environment.CurrentDirectory, "Bildings.txt");
+        string water = Path.Combine(Environment.CurrentDirectory, "Water.txt");
+        string bildings = Path.Combine(Environment.CurrentDirectory, "Bildings.txt");
 
         public void Redraw(int i, int i2, int n)
         {
@@ -207,7 +207,7 @@ namespace TurboKyrsa4
 
         public int[,] GetLocation()
         {
-            StreamReader sr = new StreamReader(bildings);
+            StreamReader sr = new StreamReader(bildings);            
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)

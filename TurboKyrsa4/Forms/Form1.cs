@@ -29,6 +29,7 @@ namespace TurboKyrsa4
         {
             int[] check = game.FindCoords(e.X, e.Y);
             pictureBox1.Image = game.Accentuation(e.X, e.Y);
+            construction.GetI(game.SendI()[0], game.SendI()[1]);
             if (check[2] != -1)
             {
                 if (check[2] == 1 || check[2] == 7 || check[2] == 6 || (check[2] >= 20 && check[2] < 24))
@@ -37,8 +38,7 @@ namespace TurboKyrsa4
                 }
                 else
                     MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
-            }
-            construction.GetI(game.SendI()[0], game.SendI()[1]);           
+            }         
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
