@@ -16,6 +16,7 @@ namespace TurboKyrsa4
         public Form1()
         {
             InitializeComponent();
+            game.InitializeMass();
             pictureBox1.Image = game.RenderMap();
         }
 
@@ -37,7 +38,7 @@ namespace TurboKyrsa4
                 else
                     MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
             }
-           
+            construction.GetI(game.SendI()[0], game.SendI()[1]);           
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

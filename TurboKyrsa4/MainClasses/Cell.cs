@@ -3,41 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TurboKyrsa4
 {
     public class Cell //Класс отвечающий за ячейки
     {
-        public bool bilding;
-
-        public Cell()
-        {
-
-        }
-
-        public Cell(bool bilding) // Конструктор класса
-        {
-            this.bilding = bilding;
-        }
-
-        public void Set(bool bild) // Функция установки значения нахождения города в ячейке
-        {
-            bilding = bild;
-        }
-
-        public bool Get() // Функция получения значения о нахождения города в ячейке
-        {
-            return bilding;
-        }
-
         bool[,] map = new bool[15, 7];
         int[,] location = new int[15, 7];
-
-       
+        string water = System.IO.Path.Combine(Environment.CurrentDirectory, "Water.txt");
+        string bildings = System.IO.Path.Combine(Environment.CurrentDirectory, "Bildings.txt");
 
         public void Redraw(int i, int i2, int n)
         {
             location[i, i2] = n;
+            SetLocation(location);
         }
 
         public void InfoAboutMap()
@@ -48,8 +28,7 @@ namespace TurboKyrsa4
                 {
                     map[i, i2] = true;
                 }
-            }
-            
+            }           
             map[0, 1] = false;
             map[0,4] = false;
             map[0,5] = false;
@@ -102,11 +81,42 @@ namespace TurboKyrsa4
 
         public void SetinfoAboutMap(bool[,] info)
         {
-            map = info;
+            StreamWriter sw = new StreamWriter(water);
+            string line = "";
+            sw.Write(line);
+            for (int i = 0; i < 15; i++)
+            {
+                for (int i2 = 0; i2 < 7; i2++)
+                {
+                    if (map[i, i2])
+                        line += "a";
+                    else
+                        line += "b";
+                }
+            }
+            sw.WriteLine(line);
+            sw.Close();
         }
 
         public bool[,] GetinfoAboutMap()
         {
+            StreamReader sr = new StreamReader(water);
+            string line = Convert.ToString(sr.ReadLine());
+            sr.Close();
+            char[] numbers = line.ToCharArray();
+            int count = 0;
+            for (int i = 0; i < 15; i++)
+            {
+                for (int i2 = 0; i2 < 7; i2++)
+                {
+                    if (numbers[count] == Convert.ToChar("a"))
+                        map[i, i2] = true;
+                    else
+                        map[i, i2] = false;
+                    count++;
+                }
+            }
+            sr.Close();
             return map;
         }
 
@@ -197,12 +207,32 @@ namespace TurboKyrsa4
 
         public int[,] GetLocation()
         {
+            StreamReader sr = new StreamReader(bildings);
+            for (int i = 0; i < 15; i++)
+            {
+                for (int i2 = 0; i2 < 7; i2++)
+                {
+                    location[i, i2] = Convert.ToInt32(sr.ReadLine());
+                }
+            }
+            sr.Close();
             return location;
         }
 
         public void SetLocation(int[,] newlocation)
         {
-            location = newlocation;
+            StreamWriter sw = new StreamWriter(bildings);
+            string line = "";
+            sw.Write(line);
+            for (int i = 0; i < 15; i++)
+            {
+                for (int i2 = 0; i2 < 7; i2++)
+                {
+                    line += Convert.ToString(location[i, i2])+ "\r\n";
+                }
+            }
+            sw.WriteLine(line);
+            sw.Close();
         }
     }
 }

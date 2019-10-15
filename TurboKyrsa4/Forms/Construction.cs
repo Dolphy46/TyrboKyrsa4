@@ -15,19 +15,20 @@ namespace TurboKyrsa4.MainClasses
         public Construction()
         {
             InitializeComponent();
-            pictureBox1.Image = game.Construction(0);
-            pictureBox2.Image = game.Construction(1);
-            pictureBox3.Image = game.Construction(2);
-            pictureBox4.Image = game.Construction(3);
-            pictureBox5.Image = game.Construction(4);
-            pictureBox6.Image = game.Construction(5);
-            pictureBox7.Image = game.Construction(6);
-            pictureBox8.Image = game.Construction(7);
+            pictureBox1.Image = window.Construction(0);
+            pictureBox2.Image = window.Construction(1);
+            pictureBox3.Image = window.Construction(2);
+            pictureBox4.Image = window.Construction(3);
+            pictureBox5.Image = window.Construction(4);
+            pictureBox6.Image = window.Construction(5);
+            pictureBox7.Image = window.Construction(6);
+            pictureBox8.Image = window.Construction(7);
+            check.InfoAboutLocation();
         }
 
-        Render game = new Render();
-        private int number;
+        Render window = new Render();
         Cell check = new Cell();
+        private int number;
         static bool control = false;
 
         public bool Control
@@ -52,28 +53,28 @@ namespace TurboKyrsa4.MainClasses
             switch (x)
             {
                 case 0:
-                    pictureBox1.Image = game.AccentuationConstruction(x);
+                    pictureBox1.Image = window.AccentuationConstruction(x);
                     break;
                 case 1:
-                    pictureBox2.Image = game.AccentuationConstruction(x);
+                    pictureBox2.Image = window.AccentuationConstruction(x);
                     break;
                 case 2:
-                    pictureBox3.Image = game.AccentuationConstruction(x);
+                    pictureBox3.Image = window.AccentuationConstruction(x);
                     break;
                 case 3:
-                    pictureBox4.Image = game.AccentuationConstruction(x);
+                    pictureBox4.Image = window.AccentuationConstruction(x);
                     break;
                 case 4:
-                    pictureBox5.Image = game.AccentuationConstruction(x);
+                    pictureBox5.Image = window.AccentuationConstruction(x);
                     break;
                 case 5:
-                    pictureBox6.Image = game.AccentuationConstruction(x);
+                    pictureBox6.Image = window.AccentuationConstruction(x);
                     break;
                 case 6:
-                    pictureBox7.Image = game.AccentuationConstruction(x);
+                    pictureBox7.Image = window.AccentuationConstruction(x);
                     break;
                 case 7:
-                    pictureBox8.Image = game.AccentuationConstruction(x);
+                    pictureBox8.Image = window.AccentuationConstruction(x);
                     break;
             }
         }
@@ -83,28 +84,28 @@ namespace TurboKyrsa4.MainClasses
             switch (x)
             {
                 case 0:
-                    pictureBox1.Image = game.Construction(x);
+                    pictureBox1.Image = window.Construction(x);
                     break;
                 case 1:
-                    pictureBox2.Image = game.Construction(x);
+                    pictureBox2.Image = window.Construction(x);
                     break;
                 case 2:
-                    pictureBox3.Image = game.Construction(x);
+                    pictureBox3.Image = window.Construction(x);
                     break;
                 case 3:
-                    pictureBox4.Image = game.Construction(x);
+                    pictureBox4.Image = window.Construction(x);
                     break;
                 case 4:
-                    pictureBox5.Image = game.Construction(x);
+                    pictureBox5.Image = window.Construction(x);
                     break;
                 case 5:
-                    pictureBox6.Image = game.Construction(x);
+                    pictureBox6.Image = window.Construction(x);
                     break;
                 case 6:
-                    pictureBox7.Image = game.Construction(x);
+                    pictureBox7.Image = window.Construction(x);
                     break;
                 case 7:
-                    pictureBox8.Image = game.Construction(x);
+                    pictureBox8.Image = window.Construction(x);
                     break;
             }
 
@@ -181,14 +182,18 @@ namespace TurboKyrsa4.MainClasses
             number = 7;
             Picter(number);
         }
+        int i, i2;
+
+        public void GetI(int i,int i2)
+        {
+            this.i = i;
+            this.i2 = i2;
+        }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-        //    control = true;
-        //    int i = game.I;
-        //    int i2 = game.I2;
-        //    check.Redraw(i, i2, number + 25);
-        //    this.Close();
+            check.Redraw(i, i2, number + 25);
+            this.Close();
         }
 
         private void pictureBox7_MouseMove(object sender, MouseEventArgs e)

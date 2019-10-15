@@ -29,3 +29,4 @@ C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Turbo
 C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.exe
 C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.pdb
 C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.MainClasses.Construction.resources
+C:\Users\Роман\Desktop\TyrboKyrsa4\TurboKyrsa4\obj\Debug\TurboKyrsa4.MainClasses.Construction.resources

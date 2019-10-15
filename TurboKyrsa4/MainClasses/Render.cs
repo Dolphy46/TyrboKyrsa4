@@ -13,17 +13,19 @@ namespace TurboKyrsa4
         Bitmap map = new Bitmap(1280, 960);
         Graphics graph;
         Cell getmarks = new Cell();
-       
-        private int i , i2;
 
-        public int I
+        private int speciali2, speciali;
+
+        public int[] SendI()
         {
-            get { return i; }
+            int[] numbers = new int[] {speciali,speciali2};
+            return numbers;
         }
 
-        public int I2
+        public void InitializeMass()
         {
-            get { return i2; }
+            getmarks.InfoAboutMap();
+            getmarks.InfoAboutLocation();
         }
 
         public Bitmap RenderMap()  // Главная функция отрисовки карты.
@@ -65,14 +67,7 @@ namespace TurboKyrsa4
             images[30] = Image.FromFile("windturbine_winter.png");
             images[31] = Image.FromFile("casern_winter.png");
             images[32] = Image.FromFile("laboratory_winter.png");
-            graph.DrawImage(globalmap, 1, 1, 1279, 959);
-            bool count1 = true;
-            if (count1 == true)
-            {
-                getmarks.InfoAboutMap();
-                getmarks.InfoAboutLocation();
-                count1 = false;
-            }
+            graph.DrawImage(globalmap, 1, 1, 1279, 959);                                    
             bool count = true;
             int[,] location = getmarks.GetLocation();
             bool[,] marks = getmarks.GetinfoAboutMap();
@@ -148,8 +143,8 @@ namespace TurboKyrsa4
                         {
                             coords[0] = x1;
                             coords[1] = y1;
-                            this.i = i;
-                            this.i2 = i2;
+                            speciali = i;
+                            speciali2 = i2;
                             coords[2] = location[i,i2];
                         }
                     }
