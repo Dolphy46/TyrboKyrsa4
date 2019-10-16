@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TurboKyrsa4.Forms;
 
 namespace TurboKyrsa4.MainClasses
 {
@@ -28,6 +29,7 @@ namespace TurboKyrsa4.MainClasses
 
         Render window = new Render();
         Cell check = new Cell();
+        public Resources resources = new Resources();
         private int number;
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -187,6 +189,7 @@ namespace TurboKyrsa4.MainClasses
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            resources.SetNumberResours(number);
             check.Redraw(i, i2, number + 25);
             this.Close();
         }

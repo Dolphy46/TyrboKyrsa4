@@ -98,6 +98,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Enabled = false;
             this.pictureBox4.Location = new System.Drawing.Point(437, 39);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 100);
@@ -109,6 +110,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Enabled = false;
             this.pictureBox5.Location = new System.Drawing.Point(30, 256);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 100);
@@ -120,6 +122,7 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.Enabled = false;
             this.pictureBox6.Location = new System.Drawing.Point(167, 256);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 100);
@@ -131,6 +134,7 @@
             // 
             // pictureBox7
             // 
+            this.pictureBox7.Enabled = false;
             this.pictureBox7.Location = new System.Drawing.Point(302, 256);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 100);
@@ -142,6 +146,7 @@
             // 
             // pictureBox8
             // 
+            this.pictureBox8.Enabled = false;
             this.pictureBox8.Location = new System.Drawing.Point(432, 256);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(100, 100);
@@ -330,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 510);
+            this.ClientSize = new System.Drawing.Size(590, 510);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);

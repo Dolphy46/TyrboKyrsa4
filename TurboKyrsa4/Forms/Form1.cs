@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TurboKyrsa4.Forms;
 using TurboKyrsa4.MainClasses;
 
 namespace TurboKyrsa4
@@ -20,12 +21,20 @@ namespace TurboKyrsa4
             check.InfoAboutLocation();
             check.Record();
             pictureBox1.Image = game.RenderMap();
+            Conclusion();
         }
 
         Render game = new Render();
         Cell check = new Cell();
         Construction construction = new Construction();
+        
 
+        public void Conclusion()
+        {
+            label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString();
+            label2.Text = construction.resources.GetLabel2();
+            label3.Text = construction.resources.GetLabel3();
+        }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -48,7 +57,8 @@ namespace TurboKyrsa4
                     else
                         MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
                 }
-            }         
+            }
+            Conclusion();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
