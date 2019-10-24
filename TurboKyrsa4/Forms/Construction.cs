@@ -190,8 +190,20 @@ namespace TurboKyrsa4.MainClasses
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             resources.SetNumberResours(number);
-            check.Redraw(i, i2, number + 25);
-            this.Close();
+            if (resources.test == true)
+            {
+                if (resources.port == true && number == 4)
+                {
+                    MessageBox.Show("Можно построить всего один порт за игру.");
+                }
+                else
+                {
+                    check.Redraw(i, i2, number + 25);
+                    this.Close();
+                }
+            }
+            else
+                MessageBox.Show("У вас недостаточно монет или ресурсов.\n                   Проверте свой баланс.");
         }
 
         private void pictureBox7_MouseMove(object sender, MouseEventArgs e)

@@ -11,14 +11,15 @@ namespace TurboKyrsa4.Forms
         private int rating = 50; //Рейтинг
         private int money = 10000; //ДЕНЬГИ
 
-        int numberMine = 0; //количество шахт
-        int numberSawmill = 0; //количество лесопилок
-        int numberFarm = 0; // количество ферм
-        bool port = false; // наличие порта
-        int numberPlant = 0; // количество заводов
-        int numberWindturbine = 0; // количество ветряков
-        int numberCasern = 0; // количество казарм
-        int numberLaboratory = 0; // количество лабораторий
+        public int numberMine = 0; //количество шахт
+        public int numberSawmill = 0; //количество лесопилок
+        public int numberFarm = 0; // количество ферм
+        public bool port = false; // наличие порта
+        public int numberPlant = 0; // количество заводов
+        public int numberWindturbine = 0; // количество ветряков
+        public int numberCasern = 0; // количество казарм
+        public int numberLaboratory = 0; // количество лабораторий
+
         private int iron = 0; // количество железа
         private int coal = 0; //количество угля
         private int wood = 0; // количество древесины
@@ -28,55 +29,103 @@ namespace TurboKyrsa4.Forms
         private int men = 0; // количество солдат
         private int warhead = 0; // колчество боеголовок
 
+        public bool test = true; //Для проверки достаточно ли денег или ресурсов на счету у игрока
+
         public int InfoRating()
         {
             return rating;
         }
 
+        public int InfoMoney()
+        {
+            return money;
+        }
+
+        public void SetMoney() // каждый ход +500 монет
+        {
+            money = money + 500;
+        }
+
+
         public void SetNumberResours(int i)
         {
+            test = true;
             switch (i)
             {
                 case 0:
-                    numberMine++;
+                    if (money >= 2000)
+                    {
+                        numberMine++;
+                        money = money - 2000;
+                    }
+                    else
+                        test = false;
                     break;
                 case 1:
-                    numberSawmill++;
+                    if (money >= 2000)
+                    {
+                        numberSawmill++;
+                        money = money - 2000;
+                    }
+                    else
+                        test = false;
                     break;
                 case 2:
-                    numberFarm++;
+                    if (money >= 2000)
+                    {
+                        numberFarm++;
+                        money = money - 2000;
+                    }
+                    else
+                        test = false;
                     break;
                 case 3:
-                    port = true;
+                    if (money >= 5000 && iron >= 30 && coal >= 25 && wood >= 40)
+                    {
+                        port = true;
+                        money = money - 5000;
+                    }
+                    else
+                        test = false;
                     break;
                 case 4:
-                    numberPlant++;
+                    if (money >= 3000 && iron >= 15 && coal >= 20 && wood >= 30)
+                    {
+                        numberPlant++;
+                        money = money - 3000;
+                    }
+                    else
+                        test = false;
                     break;
                 case 5:
-                    numberWindturbine++;
+                    if (money >= 3000 && iron >= 20 && wood >= 10)
+                    {
+                        numberWindturbine++;
+                        money = money - 3000;
+                    }                   
+                    else
+                        test = false;
+
                     break;
                 case 6:
-                    numberCasern++;
-                    break;
+                    if (money >= 3000 && iron >= 50 && coal >= 20 && wood >= 60)
+                    {
+                        numberCasern++;
+                        money = money - 3000;
+                    }
+                    else
+                        test = false;
+                        break;
                 case 7:
-                    numberLaboratory++;
+                    if (money >= 10000 && iron >= 30 && uranium >= 10 && wood >= 15)
+                    {
+                        numberLaboratory++;
+                        money = money - 3000;
+                    }    
+                    else
+                        test = false;
                     break;
-
             }
-        }
-
-        public int[] InfoNumberResours() 
-        {
-            int[] resourc = new int[8];
-            resourc[0] = iron;
-            resourc[1] = coal;
-            resourc[2] = uranium;
-            resourc[3] = wood;
-            resourc[4] = eat;
-            resourc[5] = tank;
-            resourc[6] = men;
-            resourc[7] = warhead;
-            return resourc;
         }
 
         public string GetLabel2()
@@ -87,27 +136,14 @@ namespace TurboKyrsa4.Forms
             return str;
         }
 
-        public int[] InfoResours()
-        {
-            int[] resourc = new int[8];
-            resourc[0] = numberMine;
-            resourc[1] = numberSawmill;
-            resourc[2] = numberFarm;
-            if(port == true)
-            resourc[3] = 1;
-            resourc[4] = numberPlant;
-            resourc[5] = numberWindturbine;
-            resourc[6] = numberCasern;
-            resourc[7] = numberLaboratory;
-
-            return resourc;
-        }
         
         public string GetLabel3()
         {
             string str = "";
             str = "Количество построек: " + "\nШахты: " + numberMine + "\nЛесопилки: " + numberSawmill + "\nФермы: " + numberFarm + "\nЗаводы: " +
                 numberPlant + "\nВетряки: " + numberWindturbine + "\nКазармы: " + numberCasern + "\nЛаборатории: " + numberLaboratory;
+            if (port == true)
+                str = str + "\nПорт: построен";
             return str;
         }
             
@@ -116,22 +152,25 @@ namespace TurboKyrsa4.Forms
 
         public void PlusMine() // определяет сколько в шахте добывается ресурсов за ход
         {
-            iron = (iron + random.Next(5, 30)) * numberMine;
-            coal = (coal + random.Next(5, 15)) * numberMine;
-            uranium = (uranium + random.Next(0, 4)) * numberMine;
+            for (int i = 0; i < numberMine; i++)
+            {
+                iron = iron + random.Next(5, 30);
+                coal = coal + random.Next(5, 15);
+                uranium = uranium + random.Next(0, 4);
+            }
         }
 
         public void PlusSwamill() //определяет сколько в лесопилки добывается ресурсов за ход
         {
-            wood = (wood + random.Next(5, 15)) * numberSawmill;
+            for(int i = 0; i < numberSawmill; i++)
+            wood = wood + random.Next(5, 15);
         }
 
         public void PlusFarm() //определяет сколько на ферме добывается ресурсов за ход
         {
-            eat = (eat + random.Next(5, 10)) * numberFarm;
+            for(int i = 0; i < numberFarm; i++)
+            eat = eat + random.Next(5, 10);
         }
-
-              
-
+        
     }
 }

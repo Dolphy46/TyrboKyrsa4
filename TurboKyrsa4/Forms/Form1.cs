@@ -31,7 +31,7 @@ namespace TurboKyrsa4
 
         public void Conclusion()
         {
-            label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString();
+            label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString() + "\nБаланс города: " + construction.resources.InfoMoney().ToString();
             label2.Text = construction.resources.GetLabel2();
             label3.Text = construction.resources.GetLabel3();
         }
@@ -67,7 +67,19 @@ namespace TurboKyrsa4
             pictureBox1.Image = game.Accentuation(e.X, e.Y);
         }
 
-      
+        private void button1_Click(object sender, EventArgs e) // ПОКА КНОПКА ТОЛЬКО ДОБАВЛЯЕТ РЕСУРСЫ ПО ШАХТЕ, ЛЕСОРУБКЕ И ФЕРМЕ И ДЕНЬГИ КАЖДЫЙ ХОД!!!
+        {
+            construction.resources.SetMoney();
+            if (construction.resources.numberMine > 0)
+                construction.resources.PlusMine();
+            if (construction.resources.numberSawmill > 0)
+                construction.resources.PlusSwamill();
+            if (construction.resources.numberFarm > 0)
+                construction.resources.PlusFarm();
+            Conclusion();
+        }
+
+
         //2; 0  1280; 960
     }
 }
