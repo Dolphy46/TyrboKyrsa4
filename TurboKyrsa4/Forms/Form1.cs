@@ -17,9 +17,9 @@ namespace TurboKyrsa4
         public Form1()
         {
             InitializeComponent();
-            game.InitializeMass();
-            check.InfoAboutLocation();
-            check.Record();
+            check.Inic();
+            game.InicIm();
+            game.GetMass(check.GetMap(), check.GetWater());
             pictureBox1.Image = game.RenderMap();
             Conclusion();
         }
@@ -38,33 +38,41 @@ namespace TurboKyrsa4
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            int[] check = game.FindCoords(e.X, e.Y);
+            int[] check2 = game.FindCoords(e.X, e.Y);
             pictureBox1.Image = game.Accentuation(e.X, e.Y);
-            construction.GetI(game.SendI()[0], game.SendI()[1]);
-            if (check[2] != -1)
+            if (check2[2] != -1)
             {
-                if (check[2] == 1)
+                if (check2[2] == 1)
                     MessageBox.Show("Пока в городе невозможно ничего построить");
                 else
                 {
-                    if (check[2] == 7 || check[2] == 6 || (check[2] >= 20 && check[2] <= 32 && check[2] != 24))
+                    if (check2[2] == 7 || check2[2] == 6 || (check2[2] >= 20 && check2[2] <= 32 && check2[2] != 24))
                     {
-                        if (check[2] >= 25)
+                        if (check2[2] >= 25)
                             MessageBox.Show("На этой территории уже построено здание");
                         else
+                        {
                             construction.ShowDialog();
+                            if (construction.GetCheck())
+                            {
+                                check.Redraw(game.SendI()[0], game.SendI()[1], construction.GetBilding());
+                                construction.SetCheck();
+                            }
+                        }
                     }
                     else
                         MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
                 }
             }
             Conclusion();
+            game.GetMass(check.GetMap(), check.GetWater());
+            game.RenderMap();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            
+        {           
             pictureBox1.Image = game.Accentuation(e.X, e.Y);
+            game.GetMass(check.GetMap(), check.GetWater());
         }
 
         private void button1_Click(object sender, EventArgs e) // ПОКА КНОПКА ТОЛЬКО ДОБАВЛЯЕТ РЕСУРСЫ ПО ШАХТЕ, ЛЕСОРУБКЕ И ФЕРМЕ И ДЕНЬГИ КАЖДЫЙ ХОД!!!
@@ -77,6 +85,7 @@ namespace TurboKyrsa4
             if (construction.resources.numberFarm > 0)
                 construction.resources.PlusFarm();
             Conclusion();
+            game.GetMass(check.GetMap(), check.GetWater());
         }
 
 

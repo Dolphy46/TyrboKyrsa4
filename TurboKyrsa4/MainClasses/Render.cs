@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TurboKyrsa4.MainClasses;
 
 namespace TurboKyrsa4
 {
@@ -12,7 +11,10 @@ namespace TurboKyrsa4
     {
         Bitmap map = new Bitmap(1280, 960);
         Graphics graph;
-        Cell getmarks = new Cell();
+
+        int[,] mapi;
+        bool[,] water;
+        Image[] images = new Image[33];
 
         private int speciali2, speciali;
 
@@ -22,18 +24,8 @@ namespace TurboKyrsa4
             return numbers;
         }
 
-        public void InitializeMass()
+        public void InicIm()
         {
-            getmarks.InfoAboutMap();
-            getmarks.InfoAboutLocation();
-        }
-
-        public Bitmap RenderMap()  // Главная функция отрисовки карты.
-        {
-            int x=138, y=75;
-            graph = Graphics.FromImage(map);
-            Image globalmap = Image.FromFile("MAP V1.jpg");
-            Image[] images = new Image[33];
             images[0] = Image.FromFile("Dubai.png");
             images[1] = Image.FromFile("Moscow.png");
             images[2] = Image.FromFile("Washington.png");
@@ -67,17 +59,28 @@ namespace TurboKyrsa4
             images[30] = Image.FromFile("windturbine_winter.png");
             images[31] = Image.FromFile("casern_winter.png");
             images[32] = Image.FromFile("laboratory_winter.png");
+        }
+
+        public void GetMass(int[,] mass, bool[,] mass2)
+        {
+            mapi = mass;
+            water = mass2;
+        }
+
+        public Bitmap RenderMap()  // Главная функция отрисовки карты.
+        {
+            int x=138, y=75;
+            graph = Graphics.FromImage(map);
+            Image globalmap = Image.FromFile("MAP V1.jpg");                     
             graph.DrawImage(globalmap, 1, 1, 1279, 959);                                    
             bool count = true;
-            int[,] location = getmarks.GetLocation();
-            bool[,] marks = getmarks.GetinfoAboutMap();
             for (int i = 0; i < 15; i++)
             {
                 for (int i2 = 0; i2 < 7; i2++)
                 {
-                    if (marks[i, i2] == true)
+                    if (water[i, i2] == true)
                     {
-                        graph.DrawImage(images[location[i,i2]], x, y, 123, 123);
+                        graph.DrawImage(images[mapi[i,i2]], x, y, 123, 123);
                     }
                     x += 185;
                 }
@@ -127,8 +130,6 @@ namespace TurboKyrsa4
 
         public int[] FindCoords(int x, int y) // Ищет нужный шестиугольник по координатам мыши
         {
-            int[,] location = getmarks.GetLocation();
-            bool[,] info = getmarks.GetinfoAboutMap();
             int x1 = 200, y1 = 135;
             bool count = true;
             int[] coords = new int[3];
@@ -139,13 +140,13 @@ namespace TurboKyrsa4
                 {
                     if (Check(x, y, x1, y1) == true)
                     {
-                        if (info[i, i2])
+                        if (water[i, i2])
                         {
                             coords[0] = x1;
                             coords[1] = y1;
                             speciali = i;
                             speciali2 = i2;
-                            coords[2] = location[i,i2];
+                            coords[2] = mapi[i,i2];
                         }
                     }
                     x1 += 185;

@@ -13,6 +13,7 @@ namespace TurboKyrsa4.MainClasses
 {
     public partial class Construction : Form
     {
+        bool cheacking;
         public Construction()
         {
             InitializeComponent();
@@ -24,11 +25,10 @@ namespace TurboKyrsa4.MainClasses
             pictureBox6.Image = window.Construction(5);
             pictureBox7.Image = window.Construction(6);
             pictureBox8.Image = window.Construction(7);
-            check.InfoAboutLocation();
+            cheacking = false;
         }
 
         Render window = new Render();
-        Cell check = new Cell();
         public Resources resources = new Resources();
         private int number;
 
@@ -179,13 +179,8 @@ namespace TurboKyrsa4.MainClasses
             Picter(number);
         }
 
-        int i, i2;
 
-        public void GetI(int i,int i2)
-        {
-            this.i = i;
-            this.i2 = i2;
-        }
+        int bilding;
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -195,15 +190,20 @@ namespace TurboKyrsa4.MainClasses
                 if (resources.port == true && number == 4)
                 {
                     MessageBox.Show("Можно построить всего один порт за игру.");
+                    this.Close();
                 }
                 else
                 {
-                    check.Redraw(i, i2, number + 25);
+                    bilding = number + 25;
+                    cheacking = true;
                     this.Close();
                 }
             }
             else
+            {
                 MessageBox.Show("У вас недостаточно монет или ресурсов.\n                   Проверте свой баланс.");
+                this.Close();
+            }
         }
 
         private void pictureBox7_MouseMove(object sender, MouseEventArgs e)
@@ -216,6 +216,21 @@ namespace TurboKyrsa4.MainClasses
         {
             number = 6;
             Picter(number);
+        }
+
+        public int GetBilding()
+        {
+            return bilding;
+        }
+
+        public bool GetCheck()
+        {
+            return cheacking;
+        }
+
+        public void SetCheck()
+        {
+            cheacking = false;
         }
     }
 }
