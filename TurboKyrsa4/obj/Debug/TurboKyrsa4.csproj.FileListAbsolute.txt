@@ -41,3 +41,14 @@ C:\Users\Валерия\Documents\GitHub\Крсовик_3_семестр\TurboKy
 C:\Users\Валерия\Documents\GitHub\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.csproj.CoreCompileInputs.cache
 C:\Users\Валерия\Documents\GitHub\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.exe
 C:\Users\Валерия\Documents\GitHub\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.pdb
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\bin\Debug\TurboKyrsa4.exe.config
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\bin\Debug\TurboKyrsa4.exe
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\bin\Debug\TurboKyrsa4.pdb
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.csprojAssemblyReference.cache
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.Form1.resources
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.MainClasses.Construction.resources
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.Properties.Resources.resources
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.csproj.GenerateResource.cache
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.csproj.CoreCompileInputs.cache
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.exe
+C:\Users\Роман\Desktop\Крсовик_3_семестр\TurboKyrsa4\obj\Debug\TurboKyrsa4.pdb

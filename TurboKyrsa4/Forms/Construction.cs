@@ -14,24 +14,123 @@ namespace TurboKyrsa4.MainClasses
     public partial class Construction : Form
     {
         bool cheacking;
+
         public Construction()
         {
             InitializeComponent();
-            pictureBox1.Image = window.Construction(0);
-            pictureBox2.Image = window.Construction(1);
-            pictureBox3.Image = window.Construction(2);
-            pictureBox4.Image = window.Construction(3);
-            pictureBox5.Image = window.Construction(4);
-            pictureBox6.Image = window.Construction(5);
-            pictureBox7.Image = window.Construction(6);
-            pictureBox8.Image = window.Construction(7);
             cheacking = false;
         }
 
         Render window = new Render();
+
+        int infcoords;
+
+        public void InfC(int inf)
+        {
+            infcoords = inf;
+        }
+
+        public void Info()
+        {
+            if (infcoords == 1)
+            {
+                label1.Visible = true;
+                label19.Visible = true;
+                label20.Visible = true;
+                label21.Visible = true;
+                label22.Visible = true;
+                label23.Visible = true;
+                label24.Visible = true;
+                button1.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+            }
+            else
+            {
+                pictureBox1.Visible = true;
+                pictureBox2.Visible = true;
+                pictureBox3.Visible = true;
+                pictureBox4.Visible = true;
+                pictureBox5.Visible = true;
+                pictureBox6.Visible = true;
+                pictureBox7.Visible = true;
+                pictureBox8.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                label6.Visible = true;
+                label7.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                label10.Visible = true;
+                label11.Visible = true;
+                label12.Visible = true;
+                label13.Visible = true;
+                label14.Visible = true;
+                label15.Visible = true;
+                label16.Visible = true;
+                label17.Visible = true;
+                label18.Visible = true;
+                pictureBox1.Image = window.Construction(0);
+                pictureBox2.Image = window.Construction(1);
+                pictureBox3.Image = window.Construction(2);
+                pictureBox4.Image = window.Construction(3);
+                pictureBox5.Image = window.Construction(4);
+                pictureBox6.Image = window.Construction(5);
+                pictureBox7.Image = window.Construction(6);
+                pictureBox8.Image = window.Construction(7);
+            }
+        }
+
+        public void Clean()
+        {
+            if (infcoords == 1)
+            {
+                label1.Visible = false;
+                label19.Visible = false;
+                label20.Visible = false;
+                label21.Visible = false;
+                label22.Visible = false;
+                label23.Visible = false;
+                label24.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+            }
+            else
+            {
+                pictureBox1.Visible = false;
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = false;
+                pictureBox4.Visible = false;
+                pictureBox5.Visible = false;
+                pictureBox6.Visible = false;
+                pictureBox7.Visible = false;
+                pictureBox8.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
+                label9.Visible = false;
+                label10.Visible = false;
+                label11.Visible = false;
+                label12.Visible = false;
+                label13.Visible = false;
+                label14.Visible = false;
+                label15.Visible = false;
+                label16.Visible = false;
+                label17.Visible = false;
+                label18.Visible = false;
+            }           
+        }
+
         public Resources resources = new Resources();
         private int number;
-
+        
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             number = 0;
@@ -184,25 +283,24 @@ namespace TurboKyrsa4.MainClasses
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            resources.SetNumberResours(number);
-            if (resources.test == true)
+            if (resources.port == true && number == 3)
             {
-                if (resources.port == true && number == 4)
-                {
-                    MessageBox.Show("Можно построить всего один порт за игру.");
-                    this.Close();
-                }
-                else
+                MessageBox.Show("Можно построить всего один порт за игру.");
+            }
+            else
+            {
+                resources.SetNumberResours(number);
+                if (resources.InfoTest() == true)
                 {
                     bilding = number + 25;
                     cheacking = true;
                     this.Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно монет или ресурсов.\n                   Проверте свой баланс.");
-                this.Close();
+                else
+                {
+                    MessageBox.Show("У вас недостаточно монет или ресурсов.\n                   Проверте свой баланс.");
+                    this.Close();
+                }
             }
         }
 
@@ -212,10 +310,68 @@ namespace TurboKyrsa4.MainClasses
             Stroke(number);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            number = 8;
+            resources.SetNumberResours(number);
+            if (resources.InfoTest())
+            {
+                button1.Enabled = false;
+                label1.Text = "Количество построек: \nПарк: " + resources.park + "\nТорговый центр: " + resources.shop +
+                    "\nЦерковь: " + resources.temple;
+                label24.Text = "К постройке больше недоступен";
+            }
+            else
+            {
+                MessageBox.Show("У вас недостаточно монет!");
+                this.Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            number = 9;
+            resources.SetNumberResours(number);
+            if (resources.InfoTest())
+            {
+                if (resources.shop == 3)
+                {
+                    button2.Enabled = false;
+                    label22.Text = "К постройке больше недоступен";
+                }
+                label1.Text = "Количество построек: \nПарк: " + resources.park + "\nТорговый центр: " + resources.shop +
+                   "\nЦерковь: " + resources.temple;
+            }
+            else
+            {
+                MessageBox.Show("У вас недостаточно монет!");
+                this.Close();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            number = 10;
+            resources.SetNumberResours(number);
+            if (resources.InfoTest())
+            {
+                button3.Enabled = false;
+                label1.Text = "Количество построек: \nПарк: " + resources.park + "\nТорговый центр: " + resources.shop +
+                    "\nЦерковь: " + resources.temple;
+                label20.Text = "К постройке больше недоступен";
+            }
+            else
+            {
+                MessageBox.Show("У вас недостаточно монет!");
+                this.Close();
+            }
+        }
+
         private void pictureBox7_MouseLeave(object sender, EventArgs e)
         {
             number = 6;
             Picter(number);
+           
         }
 
         public int GetBilding()

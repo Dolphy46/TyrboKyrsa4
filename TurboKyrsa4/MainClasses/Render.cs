@@ -17,6 +17,7 @@ namespace TurboKyrsa4
         Image[] images = new Image[33];
 
         private int speciali2, speciali;
+        int[] coords = new int[3];
 
         public int[] SendI()
         {
@@ -132,7 +133,6 @@ namespace TurboKyrsa4
         {
             int x1 = 200, y1 = 135;
             bool count = true;
-            int[] coords = new int[3];
             coords[2] = -1;
             for (int i = 0; i < 15; i++)
             {
@@ -165,6 +165,11 @@ namespace TurboKyrsa4
                 }
             }
             return coords;
+        }
+
+        public int InfoCoords2()
+        {
+            return coords[2];
         }
         
         private bool Check(int x1,int y1,int x2,int y2) // Определяет принадлежность точки к шестиугольнику
