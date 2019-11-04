@@ -27,7 +27,6 @@ namespace TurboKyrsa4
         public Cell check = new Cell();
         public Construction construction = new Construction();
         private int moves = 30;
-        int infoI = -1, infoJ = -1;
         
         public void Conclusion()
         {
@@ -56,8 +55,6 @@ namespace TurboKyrsa4
                         if (construction.GetCheck())
                         {
                             check.Redraw(game.SendI()[0], game.SendI()[1], construction.GetBilding());
-                            infoI = game.SendI()[0];
-                            infoJ = game.SendI()[1];
                             construction.SetCheck();
                         }
                     }

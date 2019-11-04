@@ -61,6 +61,8 @@ namespace TurboKyrsa4.Forms
                 money = money + 30 * shop;
             if (temple > 0)
                 money = money + 300;
+            if (numberWindturbine > 0)
+                money = money + 150 * numberWindturbine;
         }
 
         public void SetNumberResours(int i)
