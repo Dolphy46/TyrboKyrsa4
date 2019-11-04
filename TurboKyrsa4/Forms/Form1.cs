@@ -27,6 +27,7 @@ namespace TurboKyrsa4
         public Cell check = new Cell();
         public Construction construction = new Construction();
         private int moves = 30;
+        int infoI = -1, infoJ = -1;
         
         public void Conclusion()
         {
@@ -44,10 +45,10 @@ namespace TurboKyrsa4
             if (check2[2] != -1)
             {
                 if (check2[2] == 1 || check2[2] == 7 || check2[2] == 6 || (check2[2] >= 20 && check2[2] <= 32 && check2[2] != 24))
-                    if (check2[2] >= 25)
+                    if (check2[2] == 30)
                         MessageBox.Show("На этой территории уже построено здание");
                     else
-                    {                       
+                    { 
                         construction.InfC(check2[2]);
                         construction.Info();
                         construction.ShowDialog();
@@ -55,6 +56,8 @@ namespace TurboKyrsa4
                         if (construction.GetCheck())
                         {
                             check.Redraw(game.SendI()[0], game.SendI()[1], construction.GetBilding());
+                            infoI = game.SendI()[0];
+                            infoJ = game.SendI()[1];
                             construction.SetCheck();
                         }
                     }
@@ -62,6 +65,7 @@ namespace TurboKyrsa4
                     MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
             }           
             Conclusion();
+            
             game.GetMass(check.GetMap(), check.GetWater());
             pictureBox1.Image = game.RenderMap();
         }

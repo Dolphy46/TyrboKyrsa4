@@ -24,6 +24,12 @@ namespace TurboKyrsa4.MainClasses
         Render window = new Render();
 
         int infcoords;
+        int infoMoves;
+
+        public void InMoves(int inf)
+        {
+            infoMoves = inf;
+        }
 
         public void InfC(int inf)
         {
@@ -34,6 +40,8 @@ namespace TurboKyrsa4.MainClasses
         {
             if (infcoords == 1)
             {
+                this.Width = 600;
+                this.Height = 550;
                 label1.Visible = true;
                 label19.Visible = true;
                 label20.Visible = true;
@@ -47,39 +55,57 @@ namespace TurboKyrsa4.MainClasses
             }
             else
             {
-                pictureBox1.Visible = true;
-                pictureBox2.Visible = true;
-                pictureBox3.Visible = true;
-                pictureBox4.Visible = true;
-                pictureBox5.Visible = true;
-                pictureBox6.Visible = true;
-                pictureBox7.Visible = true;
-                pictureBox8.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = true;
-                label6.Visible = true;
-                label7.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                label10.Visible = true;
-                label11.Visible = true;
-                label12.Visible = true;
-                label13.Visible = true;
-                label14.Visible = true;
-                label15.Visible = true;
-                label16.Visible = true;
-                label17.Visible = true;
-                label18.Visible = true;
-                pictureBox1.Image = window.Construction(0);
-                pictureBox2.Image = window.Construction(1);
-                pictureBox3.Image = window.Construction(2);
-                pictureBox4.Image = window.Construction(3);
-                pictureBox5.Image = window.Construction(4);
-                pictureBox6.Image = window.Construction(5);
-                pictureBox7.Image = window.Construction(6);
-                pictureBox8.Image = window.Construction(7);
+                if (infcoords == 29 || infcoords == 31 || infcoords == 32)
+                {
+                    this.Width = 500;
+                    this.Height = 250;
+                    button4.Visible = true;
+                    label25.Visible = true;
+                    if (infcoords == 31)
+                        label25.Text = "Количество произведённого ресурса: 100 солдат\nКоличество потраченных ресурсов:" +
+                            " 10 еды, 150 монет\nКаждые 100 солдат принесут - 5 к рейтингу";
+                    if (infcoords == 32)
+                        label25.Text = "Количество произведённого ресурса: 1 боеголовка\nКоличество потраченных ресурсов:" +
+                            " 20 железа, 10 урана\nКаждая боеголовка принесёт - 25 к рейтингу";
+                }
+                else
+                {
+                    this.Width = 600;
+                    this.Height = 550;
+                    pictureBox1.Visible = true;
+                    pictureBox2.Visible = true;
+                    pictureBox3.Visible = true;
+                    pictureBox4.Visible = true;
+                    pictureBox5.Visible = true;
+                    pictureBox6.Visible = true;
+                    pictureBox7.Visible = true;
+                    pictureBox8.Visible = true;
+                    label2.Visible = true;
+                    label3.Visible = true;
+                    label4.Visible = true;
+                    label5.Visible = true;
+                    label6.Visible = true;
+                    label7.Visible = true;
+                    label8.Visible = true;
+                    label9.Visible = true;
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    label12.Visible = true;
+                    label13.Visible = true;
+                    label14.Visible = true;
+                    label15.Visible = true;
+                    label16.Visible = true;
+                    label17.Visible = true;
+                    label18.Visible = true;
+                    pictureBox1.Image = window.Construction(0);
+                    pictureBox2.Image = window.Construction(1);
+                    pictureBox3.Image = window.Construction(2);
+                    pictureBox4.Image = window.Construction(3);
+                    pictureBox5.Image = window.Construction(4);
+                    pictureBox6.Image = window.Construction(5);
+                    pictureBox7.Image = window.Construction(6);
+                    pictureBox8.Image = window.Construction(7);
+                }
             }
         }
 
@@ -100,31 +126,40 @@ namespace TurboKyrsa4.MainClasses
             }
             else
             {
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox8.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label4.Visible = false;
-                label5.Visible = false;
-                label6.Visible = false;
-                label7.Visible = false;
-                label8.Visible = false;
-                label9.Visible = false;
-                label10.Visible = false;
-                label11.Visible = false;
-                label12.Visible = false;
-                label13.Visible = false;
-                label14.Visible = false;
-                label15.Visible = false;
-                label16.Visible = false;
-                label17.Visible = false;
-                label18.Visible = false;
+
+                if (infcoords == 29 || infcoords == 31 || infcoords == 32)
+                {
+                    button4.Visible = false;
+                    label25.Visible = false;
+                }
+                else
+                {
+                    pictureBox1.Visible = false;
+                    pictureBox2.Visible = false;
+                    pictureBox3.Visible = false;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
+                    pictureBox6.Visible = false;
+                    pictureBox7.Visible = false;
+                    pictureBox8.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = false;
+                    label9.Visible = false;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label16.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                }
             }           
         }
 
@@ -388,5 +423,21 @@ namespace TurboKyrsa4.MainClasses
         {
             cheacking = false;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (infcoords == 31)
+                resources.MotionMen();
+            else
+                if (infcoords == 32)
+                resources.MotionWarhead();
+            else
+                resources.MotionTank();
+            if (resources.InfoTest() == false)
+                MessageBox.Show("У вас недостаточно ресурсов для производства.");
+            this.Close();
+        }
+
+      
     }
 }

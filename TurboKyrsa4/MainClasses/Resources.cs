@@ -29,6 +29,7 @@ namespace TurboKyrsa4.Forms
         private int men = 0; // количество солдат
         private int warhead = 0; // колчество боеголовок
 
+
         public int park = 0;
         public int shop = 0;
         public int temple = 0;
@@ -97,8 +98,12 @@ namespace TurboKyrsa4.Forms
                 case 3:
                     if (money >= 5000 && iron >= 30 && coal >= 25 && wood >= 40)
                     {
+                        iron = iron - 30;
+                        coal = coal - 25;
+                        wood = wood - 40;
                         port = true;
                         money = money - 5000;
+                        rating = rating + 15;
                     }
                     else
                         test = false;
@@ -106,6 +111,9 @@ namespace TurboKyrsa4.Forms
                 case 4:
                     if (money >= 3000 && iron >= 15 && coal >= 20 && wood >= 30)
                     {
+                        iron = iron - 15;
+                        coal = coal - 20;
+                        wood = wood - 30;
                         numberPlant++;
                         money = money - 3000;
                     }
@@ -115,8 +123,11 @@ namespace TurboKyrsa4.Forms
                 case 5:
                     if (money >= 3000 && iron >= 20 && wood >= 10)
                     {
+                        iron = iron - 20;
+                        wood = wood - 100;
                         numberWindturbine++;
                         money = money - 3000;
+                        rating = rating + 5;
                     }                   
                     else
                         test = false;
@@ -125,6 +136,9 @@ namespace TurboKyrsa4.Forms
                 case 6:
                     if (money >= 3000 && iron >= 50 && coal >= 20 && wood >= 60)
                     {
+                        iron = iron - 50;
+                        coal = coal - 20;
+                        wood = wood - 60;
                         numberCasern++;
                         money = money - 3000;
                     }
@@ -134,6 +148,9 @@ namespace TurboKyrsa4.Forms
                 case 7:
                     if (money >= 10000 && iron >= 30 && uranium >= 10 && wood >= 15)
                     {
+                        iron = iron - 30;
+                        wood = wood - 15;
+                        uranium = uranium - 10;
                         numberLaboratory++;
                         money = money - 3000;
                     }    
@@ -174,7 +191,7 @@ namespace TurboKyrsa4.Forms
         {
             string str = "";
             str = "Ресурсы: " + "\nЖелезо: " + iron + "\nУголь: " + coal + "\nУран: " + uranium + "\nДерево: " + wood +
-                "\nЕда: " + eat + "\nТанк" + tank + "\nСолдаты: " + men + "\nБоеголовка: " + warhead;
+                "\nЕда: " + eat + "\nТанк: " + tank + "\nСолдаты: " + men + "\nБоеголовка: " + warhead;
             return str;
         }
 
@@ -213,6 +230,50 @@ namespace TurboKyrsa4.Forms
             for(int i = 0; i < numberFarm; i++)
             eat = eat + random.Next(5, 10);
         }
-        
+
+        public void MotionTank()
+        {
+            test = true;
+            if (iron >= 20)
+            {
+                tank = tank + 1;
+                iron = iron - 20;
+                rating = rating - 1;
+            }
+            else
+                test = false;
+
+        }
+
+        public void MotionMen()
+        {
+            test = true;
+            if (eat >= 10 && money >=150)
+            {
+                men = men + 100;
+                money = money - 150;
+                eat = eat - 10;
+                rating = rating - 5;
+            }
+            else
+                test = false;
+
+        }
+
+
+        public void MotionWarhead()
+        {
+            test = true;
+            if (uranium >= 10 && iron >= 20)
+            {
+                warhead = warhead + 1;
+                iron = iron - 20;
+                uranium = uranium - 10;
+                rating = rating - 25;
+            }
+            else
+                test = false;
+
+        }
     }
 }

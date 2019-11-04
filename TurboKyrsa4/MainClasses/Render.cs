@@ -200,10 +200,10 @@ namespace TurboKyrsa4
             image[1] = Image.FromFile("sawmill_winter.png");
             image[2] = Image.FromFile("farm_winter.png");
             image[3] = Image.FromFile("port_winter.png");
-            image[4] = Image.FromFile("plant_winter.png");
-            image[5] = Image.FromFile("windturbine_winter.png");
-            image[6] = Image.FromFile("casern_winter.png");
-            image[7] = Image.FromFile("laboratory_winter.png");
+            image[4] = Image.FromFile("plant_winter.png"); //29
+            image[5] = Image.FromFile("windturbine_winter.png"); //30
+            image[6] = Image.FromFile("casern_winter.png"); //31
+            image[7] = Image.FromFile("laboratory_winter.png"); //32
             Bitmap construction = new Bitmap(100, 100);
             graph = Graphics.FromImage(construction);
             graph.DrawImage(image[x], 0, 0);
