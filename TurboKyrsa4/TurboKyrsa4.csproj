@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainClasses\AI.cs" />
+    <Compile Include="MainClasses\Dialogs.cs" />
     <Compile Include="MainClasses\Manager.cs" />
     <Compile Include="MainClasses\Resources.cs" />
     <Compile Include="MainClasses\Cell.cs" />

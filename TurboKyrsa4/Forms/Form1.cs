@@ -24,8 +24,8 @@ namespace TurboKyrsa4
             Conclusion();
         }
         Render game = new Render();
-        public Cell check = new Cell();
-        public Construction construction = new Construction();
+        Cell check = new Cell();
+        Construction construction = new Construction();
         private int moves = 30;
         
         public void Conclusion()
@@ -44,7 +44,7 @@ namespace TurboKyrsa4
             if (check2[2] != -1)
             {
                 if (check2[2] == 1 || check2[2] == 7 || check2[2] == 6 || (check2[2] >= 20 && check2[2] <= 32 && check2[2] != 24))
-                    if (check2[2] == 30)
+                    if (check2[2] == 25|| check2[2] == 26 || check2[2] == 27|| check2[2] == 28 || check2[2] == 30)
                         MessageBox.Show("На этой территории уже построено здание");
                     else
                     { 
@@ -62,7 +62,6 @@ namespace TurboKyrsa4
                     MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
             }           
             Conclusion();
-            
             game.GetMass(check.GetMap(), check.GetWater());
             pictureBox1.Image = game.RenderMap();
         }
@@ -96,11 +95,5 @@ namespace TurboKyrsa4
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-        
-        //2; 0  1280; 960
     }
 }
