@@ -65,6 +65,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -498,11 +503,69 @@
     "одство: 20 железа\r\nКаждый танк принесёт -1 к рейтингу";
             this.label25.Visible = false;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(94, 349);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(108, 38);
+            this.button5.TabIndex = 38;
+            this.button5.Text = "Купить";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(94, 412);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(108, 38);
+            this.button6.TabIndex = 39;
+            this.button6.Text = "Купить";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(208, 349);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(103, 13);
+            this.label26.TabIndex = 40;
+            this.label26.Text = "1 уран = 500 монет";
+            this.label26.Visible = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(208, 412);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(106, 13);
+            this.label27.TabIndex = 41;
+            this.label27.Text = "10 еды = 500 монет\r\n";
+            this.label27.Visible = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label28.Location = new System.Drawing.Point(38, 60);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(386, 20);
+            this.label28.TabIndex = 42;
+            this.label28.Text = "Здесь вы можете купить ресурсы за монеты";
+            this.label28.Visible = false;
+            // 
             // Construction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 511);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
@@ -594,5 +657,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
     }
 }

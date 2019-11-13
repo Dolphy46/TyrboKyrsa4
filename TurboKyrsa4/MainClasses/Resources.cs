@@ -154,7 +154,7 @@ namespace TurboKyrsa4.Forms
                         wood = wood - 15;
                         uranium = uranium - 10;
                         numberLaboratory++;
-                        money = money - 3000;
+                        money = money - 10000;
                     }    
                     else
                         test = false;
@@ -233,7 +233,7 @@ namespace TurboKyrsa4.Forms
             eat = eat + random.Next(5, 10);
         }
 
-        public void MotionTank()
+        public void MotionTank() //совершает производство такнков
         {
             test = true;
             if (iron >= 20)
@@ -247,7 +247,7 @@ namespace TurboKyrsa4.Forms
 
         }
 
-        public void MotionMen()
+        public void MotionMen() //совершает производство солдат
         {
             test = true;
             if (eat >= 10 && money >=150)
@@ -263,7 +263,7 @@ namespace TurboKyrsa4.Forms
         }
 
 
-        public void MotionWarhead()
+        public void MotionWarhead() //совершает производство боеголовок
         {
             test = true;
             if (uranium >= 10 && iron >= 20)
@@ -275,7 +275,33 @@ namespace TurboKyrsa4.Forms
             }
             else
                 test = false;
+        }
 
+        public void Buying(int x)
+        {
+            switch(x)
+            {
+                case 0:
+                    money = money - 200;
+                    iron = iron + 10;
+                    break;
+                case 1:
+                    money = money - 100;
+                    wood = wood + 10;
+                    break;
+                case 2:
+                    money = money - 300;
+                    coal = coal + 10;
+                    break;
+                case 3:
+                    money = money - 500;
+                    uranium = uranium + 1;
+                    break;
+                case 4:
+                    money = money - 300;
+                    eat = eat + 10;
+                    break;
+            }
         }
     }
 }

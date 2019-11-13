@@ -44,7 +44,7 @@ namespace TurboKyrsa4
             if (check2[2] != -1)
             {
                 if (check2[2] == 1 || check2[2] == 7 || check2[2] == 6 || (check2[2] >= 20 && check2[2] <= 32 && check2[2] != 24))
-                    if (check2[2] == 25|| check2[2] == 26 || check2[2] == 27|| check2[2] == 28 || check2[2] == 30)
+                    if (check2[2] == 25|| check2[2] == 26 || check2[2] == 27|| check2[2] == 30)
                         MessageBox.Show("На этой территории уже построено здание");
                     else
                     { 
@@ -72,7 +72,7 @@ namespace TurboKyrsa4
             game.GetMass(check.GetMap(), check.GetWater());
         }
 
-        private void button1_Click(object sender, EventArgs e) // ПОКА КНОПКА ТОЛЬКО ДОБАВЛЯЕТ РЕСУРСЫ ПО ШАХТЕ, ЛЕСОРУБКЕ И ФЕРМЕ И ДЕНЬГИ КАЖДЫЙ ХОД!!!
+        private void button1_Click(object sender, EventArgs e) 
         {
             if (moves != 1)
             {
@@ -95,5 +95,9 @@ namespace TurboKyrsa4
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
