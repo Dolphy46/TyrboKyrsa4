@@ -52,6 +52,9 @@ namespace TurboKyrsa4.MainClasses
                 button1.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
 
                 if (resources.park > 0)
                 {
@@ -59,7 +62,7 @@ namespace TurboKyrsa4.MainClasses
                     label24.Text = "К постройке больше недоступен";
                 }
 
-                if (resources.shop > 3)
+                if (resources.shop == 3)
                 {
                     button2.Enabled = false;
                     label22.Text = "К постройке больше недоступен";
