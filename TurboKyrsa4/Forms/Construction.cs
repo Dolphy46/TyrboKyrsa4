@@ -93,66 +93,74 @@ namespace TurboKyrsa4.MainClasses
                 {
                     if (infcoords == 28)
                     {
-                        this.Width = 450;
+                        this.Width = 500;
                         this.Height = 550;
-                        button1.Text = "Купить";
-                        button2.Text = "Купить";
-                        button3.Text = "Купить";
+                        button1.Text = "10 железа = 200 монет";
+                        button2.Text = "10 дерева = 100 монет";
+                        button3.Text = "10 угля = 300 монет";
                         button1.Visible = true;
                         button2.Visible = true;
                         button3.Visible = true;
                         button5.Visible = true;
+                        button7.Visible = true;
                         button6.Visible = true;
-                        label26.Visible = true;
-                        label27.Visible = true;
+                        button8.Visible = true;
+                        button9.Visible = true;
+                        button10.Visible = true;
+                        button11.Visible = true;
                         label28.Visible = true;
-                        label24.Text = "10 железа = 200 монет";
-                        label22.Text = "10 дерева = 100 монет";
-                        label20.Text = "10 угля = 300 монет";
-                        label26.Text = "1 уран = 500 монет";
-                        label27.Text = "10 еды = 300 монет";
-                        label24.Visible = true;
-                        label20.Visible = true;
-                        label22.Visible = true;
+
                         if (resources.InfoMoney() >= 200)
                             button1.Enabled = true;
                         else
-                        {
-                            label24.Text = "Недостаточно монет для покупки";
                             button1.Enabled = false;
-                        }
 
                         if (resources.InfoMoney() >= 100)
                             button2.Enabled = true;
                         else
-                        {
-                            label22.Text = "Недостаточно монет для покупки";
                             button2.Enabled = false;
-                        }
 
                         if (resources.InfoMoney() >= 300)
+                        {
                             button3.Enabled = true;
+                            button6.Enabled = true;
+                        }
                         else
                         {
-                            label20.Text = "Недостаточно монет для покупки";
                             button3.Enabled = false;
+                            button6.Enabled = false;
                         }
 
                         if (resources.InfoMoney() >= 500)
                             button5.Enabled = true;
                         else
-                        {
-                            label26.Text = "Недостаточно монет для покупки";
                             button5.Enabled = false;
-                        }
 
-                        if (resources.InfoMoney() >= 300)
-                            button6.Enabled = true;
+                        if (resources.InfoResources(0) >= 10)
+                            button7.Enabled = true;
                         else
-                        {
-                            label27.Text = "Недостаточно монет для покупки";
-                            button6.Enabled = false;
-                        }
+                            button7.Enabled = false;
+
+                        if (resources.InfoResources(1) >= 10)
+                            button8.Enabled = true;
+                        else
+                            button8.Enabled = false;
+
+                        if (resources.InfoResources(2) >= 10)
+                            button9.Enabled = true;
+                        else
+                            button9.Enabled = false;
+
+                        if (resources.InfoResources(3) >= 1)
+                            button10.Enabled = true;
+                        else
+                            button10.Enabled = false;
+
+                        if (resources.InfoResources(4) >= 10)
+                            button11.Enabled = true;
+                        else
+                            button11.Enabled = false;
+
                     }
                     else
                     {
@@ -223,9 +231,6 @@ namespace TurboKyrsa4.MainClasses
                 {
                     if (infcoords == 28)
                     {
-                        label24.Text = "(Возможно построить всего один парк за игру) \n+ 10 монет каждый ход \nРейтинг: Нейтрально";
-                        label22.Text = "(Возможно построить всего 3 торгового центра за игру) \n+ 30 монет каждый ход \nРейтинг: Нейтрально";
-                        label20.Text = "(Возможно построить всего 1 храм за игру) \n+ 300 монет каждый ход \nРейтинг: Нейтрально";
                         label24.Visible = false;
                         label22.Visible = false;
                         label20.Visible = false;
@@ -233,9 +238,12 @@ namespace TurboKyrsa4.MainClasses
                         button2.Visible = false;
                         button3.Visible = false;
                         button5.Visible = false;
+                        button7.Visible = false;
                         button6.Visible = false;
-                        label26.Visible = false;
-                        label27.Visible = false;
+                        button8.Visible = false;
+                        button9.Visible = false;
+                        button10.Visible = false;
+                        button11.Visible = false;
                         label28.Visible = false;
                         button1.Text = "Построить парк";
                         button2.Text = "Построить торговый цент";
@@ -457,14 +465,15 @@ namespace TurboKyrsa4.MainClasses
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "Купить")
+            if (button1.Text == "10 железа = 200 монет")
             {
                 if (resources.InfoMoney() >= 200)
                     resources.Buying(0);
                 else
                 {
-                    MessageBox.Show("Недостаточно монет для покупки");
-                    this.Close();
+
+                    MessageBox.Show("У вас недостаточно монет для покупки");
+                    button6.Enabled = false;
                 }
 
             }
@@ -489,14 +498,16 @@ namespace TurboKyrsa4.MainClasses
 
         private void button2_Click(object sender, EventArgs e)
         {
-                if (button2.Text == "Купить")
+                if (button2.Text == "10 дерева = 100 монет")
                 {
                    if(resources.InfoMoney() >= 100)
                       resources.Buying(1);
                    else
                    {
-                      MessageBox.Show("Недостаточно монет для покупки");
-                      this.Close();
+
+                    MessageBox.Show("У вас недостаточно монет для покупки");
+                    button6.Enabled = false;
+                    
                    }
                 }
                 else
@@ -523,14 +534,14 @@ namespace TurboKyrsa4.MainClasses
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (button3.Text == "Купить")
+            if (button3.Text == "10 угля = 300 монет")
             {
                 if(resources.InfoMoney() >= 300)
                 resources.Buying(2);
                 else
                 {
-                    MessageBox.Show("Недостаточно монет для покупки");
-                    this.Close();
+                    MessageBox.Show("У вас недостаточно монет для покупки");
+                    button3.Enabled = false;
                 }
             }
             else
@@ -594,8 +605,10 @@ namespace TurboKyrsa4.MainClasses
             resources.Buying(3);
             else
             {
-                MessageBox.Show("Недостаточно монет для покупки");
-                this.Close();
+
+                MessageBox.Show("У вас недостаточно монет для покупки");
+                button5.Enabled = false;
+
             }
         }
 
@@ -604,10 +617,65 @@ namespace TurboKyrsa4.MainClasses
             if(resources.InfoMoney() >= 300)
             resources.Buying(4);
             else
-            {
-                MessageBox.Show("Недостаточно монет для покупки");
-                this.Close();
-            }
+                {
+                MessageBox.Show("У вас недостаточно монет для покупки");
+                button6.Enabled = false;
+                }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (resources.InfoResources(0) >= 10)
+                resources.Buying(5);
+            else
+                {
+                MessageBox.Show("У вас недостаточно железа для продажи");
+                button7.Enabled = false;
+                }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if(resources.InfoResources(1) >= 10)
+                resources.Buying(6);
+            else
+                {
+                MessageBox.Show("У вас недостаточно древесины для продажи");
+                button8.Enabled = false;
+                }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (resources.InfoResources(2) >= 10)
+                resources.Buying(7);
+            else
+                {
+                MessageBox.Show("У вас недостаточно угля для продажи");
+                button9.Enabled = false;
+                }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (resources.InfoResources(3) >= 1)
+                resources.Buying(8);
+            else
+               {
+                MessageBox.Show("У вас недостаточно урана для продажи");
+                button10.Enabled = false;
+               }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (resources.InfoResources(4) >= 10)
+                resources.Buying(9);
+            else
+               {
+                  MessageBox.Show("У вас недостаточно еды для продажи");
+                  button11.Enabled = false;
+               }
         }
     }
 }

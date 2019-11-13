@@ -41,6 +41,18 @@ namespace TurboKyrsa4.Forms
             return rating;
         }
 
+        public int InfoResources(int x)
+        {
+            int[] info = new int[5];
+            info[0] = iron;
+            info[1] = wood;
+            info[2] = coal;
+            info[3] = uranium;
+            info[4] = eat;
+
+            return info[x];
+        }
+
         public int InfoMoney()
         {
             return money;
@@ -300,6 +312,26 @@ namespace TurboKyrsa4.Forms
                 case 4:
                     money = money - 300;
                     eat = eat + 10;
+                    break;
+                case 5:
+                    money = money + 200;
+                    iron = iron - 10;
+                    break;
+                case 6:
+                    money = money + 100;
+                    wood = wood - 10;
+                    break;
+                case 7:
+                    money = money + 300;
+                    coal = coal - 10;
+                    break;
+                case 8:
+                    money = money + 500;
+                    uranium = uranium - 1;
+                    break;
+                case 9:
+                    money = money + 300;
+                    eat = eat - 10;
                     break;
             }
         }

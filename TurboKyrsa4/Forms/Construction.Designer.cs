@@ -67,9 +67,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -509,7 +512,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(108, 38);
             this.button5.TabIndex = 38;
-            this.button5.Text = "Купить";
+            this.button5.Text = "1 уран = 500 монет";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -520,30 +523,10 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(108, 38);
             this.button6.TabIndex = 39;
-            this.button6.Text = "Купить";
+            this.button6.Text = "10 еды = 300 монет";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Visible = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(208, 349);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(103, 13);
-            this.label26.TabIndex = 40;
-            this.label26.Text = "1 уран = 500 монет";
-            this.label26.Visible = false;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(208, 412);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(106, 13);
-            this.label27.TabIndex = 41;
-            this.label27.Text = "10 еды = 500 монет\r\n";
-            this.label27.Visible = false;
             // 
             // label28
             // 
@@ -551,19 +534,78 @@
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label28.Location = new System.Drawing.Point(38, 60);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(386, 20);
+            this.label28.Size = new System.Drawing.Size(386, 60);
             this.label28.TabIndex = 42;
-            this.label28.Text = "Здесь вы можете купить ресурсы за монеты";
+            this.label28.Text = "Здесь вы можете купить ресурсы за монеты\r\n\r\n      Купить ресурсы     Продать ресу" +
+    "рсы";
             this.label28.Visible = false;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(244, 139);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(108, 38);
+            this.button7.TabIndex = 43;
+            this.button7.Text = "200 монет = 10 железа";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(244, 207);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(108, 38);
+            this.button8.TabIndex = 44;
+            this.button8.Text = "100 монет = 10 дерева";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Visible = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(244, 278);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(108, 38);
+            this.button9.TabIndex = 45;
+            this.button9.Text = "300 монет = 10 угля";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(247, 349);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(108, 38);
+            this.button10.TabIndex = 46;
+            this.button10.Text = "500 монет = 1 уран";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Visible = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(247, 412);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(108, 38);
+            this.button11.TabIndex = 47;
+            this.button11.Text = "300 монет = 10 еды";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Visible = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Construction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 511);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.label26);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label25);
@@ -659,8 +701,11 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }
