@@ -289,7 +289,7 @@ namespace TurboKyrsa4.Forms
                 test = false;
         }
 
-        public void Buying(int x)
+        public void Buying(int x)  // Покупка и продажа ресурсов в порту
         {
             switch(x)
             {
@@ -334,6 +334,65 @@ namespace TurboKyrsa4.Forms
                     eat = eat - 10;
                     break;
             }
+
         }
+
+        public void Conference(bool f, int x) //изменение рейтинга по средствам диалогов 
+        {
+            if (f == true)
+                rating = rating + x;
+            else
+                rating = rating - x;
+        }
+
+        public void HelpResources(int x, int x1) // помощь ресурсами странам
+        {
+            test = true;
+            switch (x)
+            {
+                case 0:
+                    if (iron >= x1)
+                        iron = iron - x1;
+                    else
+                        test = false;
+                    break;
+
+                case 1:
+                    if (wood >= x1)
+                        wood = wood - x1;
+                    else
+                        test = false;
+                    break;
+
+                case 2:
+                    if (coal >= x1)
+                        coal = coal - x1;
+                    else
+                        test = false;
+                    break;
+
+                case 3:
+                    if (uranium >= x1)
+                        uranium = uranium - x1;
+                    else
+                        test = false;
+                    break;
+
+                case 4:
+                    if (eat >= x1)
+                        eat = eat - x1;
+                    else
+                        test = false;
+                    break;
+                case 5:
+                    if (money >= x1)
+                        money = money - x1;
+                    else
+                        test = false;
+                    break;
+            }
+        }
+
+       
     }
 }
