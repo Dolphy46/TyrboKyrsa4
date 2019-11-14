@@ -140,7 +140,7 @@ namespace TurboKyrsa4.Forms
                     if (money >= 3000 && iron >= 20 && wood >= 10)
                     {
                         iron = iron - 20;
-                        wood = wood - 100;
+                        wood = wood - 10;
                         numberWindturbine++;
                         money = money - 3000;
                         rating = rating + 5;
