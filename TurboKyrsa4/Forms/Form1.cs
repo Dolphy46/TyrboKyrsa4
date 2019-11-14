@@ -21,92 +21,18 @@ namespace TurboKyrsa4
             game.InicIm();
             game.GetMass(check.GetMap(), check.GetWater());
             pictureBox1.Image = game.RenderMap();
-            Conference();
             Conclusion();
         }
 
         Render game = new Render();
         Cell check = new Cell();
+        Random random = new Random();
+        Dialogs dialogs = new Dialogs();
         Construction construction = new Construction();
+
         private int moves = 30;
-        DialogResult res = new DialogResult();
 
-
-        public void Conference() //первый ход - конференция
-        {
-            DialogResult res = MessageBox.Show("Добро пожаловать в игру!\nВ первый ход игры вам предлагается посетить преветственную " +
-                "конференцию на которой произойдет знакомство всех стран.\nЕсли вы согласитесь её посетить, то вам пибавить 20 баллов" +
-                " рейтинга, так как это будет расцениваться как положительный знак.\nЕсли вы решите не присутсвовать на конференции, " +
-                "то вы потеряеет 15 баллов рейтинга.\nПосещение конференции отнимет у вас один игровой ход, в течении которого вы не " +
-                "сможите ничего сделать на карте.\n\nВы готовы посетить конференцию?", "Преветственная конференция", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
-            {
-                construction.resources.Conference(true, 20);
-                moves--;
-                MessageBox.Show("Члены конференции были рады видеть вас на собрании\nВы потратили один ход и получили + 20 рейтинга");
-            }
-            else
-            {
-                construction.resources.Conference(false, 15);
-                MessageBox.Show("Члены конференции надеялись увидеть вас на собрании.\nВы получили - 15 рейтинга");
-            }
-        }
-
-        public void HelpResources(int x, int x1) // помощь стране ресурсами
-        {
-            string s = "";
-            if (x == 0)
-                s = "железа";
-            else
-                 if (x == 1)
-                s = "дерева";
-            else
-                 if (x == 2)
-                s = "угля";
-            else
-               if (x == 3)
-                s = "урана";
-            else
-                s = "еды";
-
-             res = MessageBox.Show("Одна из стран просит помочь ей ресурсами.\nЕсли вы согласны, то это принесёт 5 баллов " +
-                "рейтинга.\nЕсли вы не согласны это отнимет 5 баллово рейтинга.\n\nГотовы ли вы перечислить стране " + x1 + " " + s + "?",
-                "Помощь", MessageBoxButtons.YesNo);
-
-            ResNew(5, x, x1);
-        } 
-
-        public void HelpMoney(int x)// помощь стране деньгами
-        {
-            res = MessageBox.Show("Одна из стран просит помочь ей монетами.\nЕсли вы согласны, то это принесёт 10 баллов " +
-               "рейтинга.\nЕсли вы не согласны это отнимет 10 баллово рейтинга.\n\nГотовы ли вы перечислить стране " + x + " монет?",
-               "Помощь", MessageBoxButtons.YesNo);
-            ResNew(10, 5, x);
-        }
-
-        public void ResNew(int r, int x, int x1) //изменение данных по количеству ресурсов при диалоге с другмими странами
-        {
-            if (res == DialogResult.Yes)
-            {
-                construction.resources.HelpResources(x, x1);
-                if (construction.resources.InfoTest())
-                {
-                    construction.resources.Conference(true, r);
-                    MessageBox.Show("Страна благодарна вам за помощь\nВы получили + " + r + " рейтигна.");
-                }
-                else
-                {
-                    MessageBox.Show("У вас недостаточно ресурсов для помощи\nВы получаете - " + r +" рейтинга, потому что не можите помочь");
-                    construction.resources.Conference(false, r);
-                }
-            }
-            else
-            {
-                construction.resources.Conference(false, r);
-                MessageBox.Show("Страна очень разочарована вашем отказом\nВы получили  - " + r + " рейтинга.");
-            }
-        }
-
+       
         public void Conclusion()
         {
             label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString() + "\nБаланс города: " + construction.resources.InfoMoney().ToString();
@@ -151,10 +77,16 @@ namespace TurboKyrsa4
             game.GetMass(check.GetMap(), check.GetWater());
         }
 
-        Random random = new Random();
-
         private void button1_Click(object sender, EventArgs e) 
         {
+            dialogs.Construction(construction); //каждый ход передает экзепляр класса Construction в класс Dialogs
+            if (moves == 30)
+            {
+                dialogs.Conference();
+                if(dialogs.InfoConference() != true)
+                    moves--;
+            }
+            
             if (moves != 1)
             {
                 construction.resources.SetMoney();
@@ -169,13 +101,13 @@ namespace TurboKyrsa4
 
                 if(moves%3 == 0) //каждые три хода - вызов функции для помощи ресурсами
                 {
-                    HelpResources(random.Next(0, 4), random.Next(10, 30));
+                    dialogs.HelpResources(random.Next(0, 4), random.Next(10, 30));
                     Conclusion();
                 }
 
                 if(moves == 20 || moves ==8) //20 и 8 ход - вызов функции для помощи монетами
                 {
-                    HelpMoney(random.Next(500, 2500));
+                    dialogs.HelpMoney(random.Next(500, 2500));
                     Conclusion();
                 }
             }
@@ -187,5 +119,6 @@ namespace TurboKyrsa4
                 Application.Exit();
             }
         }
+
     }
 }
