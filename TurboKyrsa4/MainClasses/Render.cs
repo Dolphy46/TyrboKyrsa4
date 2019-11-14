@@ -14,7 +14,7 @@ namespace TurboKyrsa4
 
         int[,] mapi;
         bool[,] water;
-        Image[] images = new Image[48];
+        Image[] images = new Image[50];
 
         private int speciali2, speciali;
         int[] coords = new int[3];
@@ -79,8 +79,6 @@ namespace TurboKyrsa4
             images[46] = Image.FromFile("casern_savannah.png");
             images[47] = Image.FromFile("port_savannah.png");
             images[48] = Image.FromFile("laboratory_savannah.png");
-
-
         }
 
         public void GetMass(int[,] mass, bool[,] mass2)
