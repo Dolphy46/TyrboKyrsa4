@@ -22,6 +22,7 @@ namespace TurboKyrsa4
             game.GetMass(check.GetMap(), check.GetWater());
             pictureBox1.Image = game.RenderMap();
             dialogs.InfoResources(construction.resources);
+            al.GetRender(game);
             Conclusion();
         }
 
@@ -30,6 +31,7 @@ namespace TurboKyrsa4
         Random random = new Random();
         Dialogs dialogs = new Dialogs();
         Construction construction = new Construction();
+        AI al = new AI();
 
         private int moves = 30;
         private int fw = 3;
@@ -95,6 +97,7 @@ namespace TurboKyrsa4
 
         private void button1_Click(object sender, EventArgs e) 
         {
+            al.GetMoves(moves);
             dialogs.InfoResources(construction.resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
             if (moves == 30)
             {
