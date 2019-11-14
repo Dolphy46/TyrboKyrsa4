@@ -35,6 +35,8 @@ namespace TurboKyrsa4.Forms
         public int temple = 0;
 
         bool test = true; //Для проверки достаточно ли денег или ресурсов на счету у игрока
+        public bool testport = false;
+        public bool epidemic = false;
 
         public int InfoRating()
         {
@@ -393,6 +395,41 @@ namespace TurboKyrsa4.Forms
             }
         }
 
-       
+        public void HelpNature(int x)
+        {
+            test = true;
+            if (money >= x)
+                money = money - x;
+            else
+                test = false;
+        }
+
+        public void Spy() //Конференция: шпион (охрд солдта)
+        {
+            test = true;
+            if (men >= 500)
+                men = men - 500;
+            else
+            {
+                test = false;
+                men = 0;
+            }
+        }
+
+        public bool PortTest() //Конференция: порт 
+        {
+            bool porttest;
+            if (port == true)
+            {
+                porttest = true;
+            }
+            else
+            {
+                porttest = false;
+            }
+            return porttest;
+        }
+
+        
     }
 }

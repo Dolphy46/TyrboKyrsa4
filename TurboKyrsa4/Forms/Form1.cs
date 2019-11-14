@@ -21,6 +21,7 @@ namespace TurboKyrsa4
             game.InicIm();
             game.GetMass(check.GetMap(), check.GetWater());
             pictureBox1.Image = game.RenderMap();
+            dialogs.InfoResources(construction.resources);
             Conclusion();
         }
 
@@ -31,8 +32,11 @@ namespace TurboKyrsa4
         Construction construction = new Construction();
 
         private int moves = 30;
+        private int fw = 3;
+        private int fp = 3;
+        private bool fport = false;
 
-       
+
         public void Conclusion()
         {
             label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString() + "\nБаланс города: " + construction.resources.InfoMoney().ToString();
@@ -62,6 +66,18 @@ namespace TurboKyrsa4
                             check.Redraw(game.SendI()[0], game.SendI()[1], construction.GetBilding());
                             construction.SetCheck();
                         }
+
+                        if (construction.resources.numberSawmill == fw )
+                        {
+                            dialogs.LittleO2();
+                            fw++;
+                        }
+
+                        if (construction.resources.numberPlant == fp)
+                        {
+                            dialogs.Heat();
+                            fp++;
+                        }
                     }
                  else
                     MessageBox.Show("Это не ваша территория.\nВыбирете свою ячейку");
@@ -79,14 +95,14 @@ namespace TurboKyrsa4
 
         private void button1_Click(object sender, EventArgs e) 
         {
-            dialogs.Construction(construction); //каждый ход передает экзепляр класса Construction в класс Dialogs
+            dialogs.InfoResources(construction.resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
             if (moves == 30)
             {
                 dialogs.Conference();
-                if(dialogs.InfoConference() != true)
+                if (dialogs.InfoConference() == true)
                     moves--;
             }
-            
+
             if (moves != 1)
             {
                 construction.resources.SetMoney();
@@ -99,17 +115,53 @@ namespace TurboKyrsa4
                 moves--;
                 Conclusion();
 
-                if(moves%3 == 0) //каждые три хода - вызов функции для помощи ресурсами
+                if (moves % 3 == 0) //каждые три хода - вызов функции для помощи ресурсами
                 {
-                    dialogs.HelpResources(random.Next(0, 4), random.Next(10, 30));
+                    dialogs.HelpResources(random.Next(0, 4), random.Next(10, 20));
                     Conclusion();
                 }
 
-                if(moves == 20 || moves ==8) //20 и 8 ход - вызов функции для помощи монетами
+                if(moves == 16)
+                {
+                    dialogs.ConferenceEpidemic();
+                    if (construction.resources.epidemic)
+                    {
+                        moves = moves - 2;
+                        construction.resources.SetMoney();
+                        construction.resources.SetMoney();
+                    }
+                    Conclusion();
+                }
+
+                if (moves == 20 || moves == 7) //20 и 7 ход - вызов функции для помощи монетами
                 {
                     dialogs.HelpMoney(random.Next(500, 2500));
                     Conclusion();
                 }
+
+                if (moves == 5)
+                {
+                    if (fport == true && construction.resources.testport == true) //наличия порта после конференции порт
+                        if (construction.resources.PortTest())
+                        {
+                            MessageBox.Show("Порт был пстроен к установленному сроку.\nВы получаете 30 быллов рейтинга.");
+                            construction.resources.Conference(true, 30);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Порт не был пocтроен к установленному сроку.\nВы теряете 30 быллов рейтинга.");
+                            construction.resources.Conference(false, 30);
+                        }
+                    dialogs.ConferenceSpy();
+                    Conclusion();
+                }
+
+                if (moves == 10 && construction.resources.port == false)
+                {
+                    dialogs.ConferencePort();
+                    fport = true;
+                }
+
             }
             else
             {
