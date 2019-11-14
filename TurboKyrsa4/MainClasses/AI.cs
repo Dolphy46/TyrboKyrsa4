@@ -22,9 +22,9 @@ namespace TurboKyrsa4.MainClasses
         Resources resourcesD = new Resources(); //экземпляр где будут хранить данные по ресурсам Дубая
         private int moves;
 
-        public Render GetRender(Render r) //записывает экземпляр класса Render, который используется в игре
+        public void GetRender(Render r) //записывает экземпляр класса Render, который используется в игре
         {
-           return game = r;
+            game = r;
         }
 
         public void GetMoves(int m) //узанет какой ход по счёту в игре
